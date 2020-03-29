@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.32.1">
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+
+  <meta id="repository-name" content="">
+  <title>JSObjectUtils - </title>
+  <script type="text/javascript">
+    CrystalDoc.base_path = "";
+  </script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="/JSCContext" data-name="jsccontext">
+      <a href="JSCContext.html">JSCContext</a>
+      
+    </li>
+  
+  <li class="parent " data-id="/JSCFunction" data-name="jscfunction">
+      <a href="JSCFunction.html">JSCFunction</a>
+      
+        <ul>
+  
+  <li class=" " data-id="/JSCFunction/CallBack" data-name="jscfunction::callback">
+      <a href="JSCFunction/CallBack.html">CallBack</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="/JSCObject" data-name="jscobject">
+      <a href="JSCObject.html">JSCObject</a>
+      
+    </li>
+  
+  <li class=" " data-id="/JSCPrimative" data-name="jscprimative">
+      <a href="JSCPrimative.html">JSCPrimative</a>
+      
+    </li>
+  
+  <li class=" current" data-id="/JSObjectUtils" data-name="jsobjectutils">
+      <a href="JSObjectUtils.html">JSObjectUtils</a>
+      
+    </li>
+  
+  <li class=" " data-id="/WebExtension" data-name="webextension">
+      <a href="WebExtension.html">WebExtension</a>
+      
+    </li>
+  
+  <li class="parent " data-id="/WebView" data-name="webview">
+      <a href="WebView.html">WebView</a>
+      
+        <ul>
+  
+  <li class=" " data-id="/WebView/Callback" data-name="webview::callback">
+      <a href="WebView/Callback.html">Callback</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> JSObjectUtils
+
+</h1>
+
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>This module provides common operations that every JavaScript entity can do</p>
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="direct-including-types" class="anchor" href="#direct-including-types">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct including types
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="JSCFunction.html">JSCFunction</a></li>
+    
+      <li class="other-type"><a href="JSCObject.html">JSCObject</a></li>
+    
+      <li class="other-type"><a href="JSCPrimative.html">JSCPrimative</a></li>
+    
+  </ul>
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#[](name:String)-instance-method" class="signature"><strong>#[]</strong>(name : String)</a>
+        
+          <div class="summary"><p>Gets property <code>name</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#[](index:UInt32)-instance-method" class="signature"><strong>#[]</strong>(index : UInt32)</a>
+        
+          <div class="summary"><p>Gets value at index <code>index</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#[]=(name:String,value:JSCPrimative%7CJSCFunction%7CJSCObject)-instance-method" class="signature"><strong>#[]=</strong>(name : String, value : JSCPrimative | JSCFunction | JSCObject)</a>
+        
+          <div class="summary"><p>Set property <code>name</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#[]=(index:UInt32,value:JSCPrimative%7CJSCFunction%7CJSCObject)-instance-method" class="signature"><strong>#[]=</strong>(index : UInt32, value : JSCPrimative | JSCFunction | JSCObject)</a>
+        
+          <div class="summary"><p>Set a value at index <code>index</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_array?-instance-method" class="signature"><strong>#is_array?</strong></a>
+        
+          <div class="summary"><p>Perform type checking</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_bool?-instance-method" class="signature"><strong>#is_bool?</strong></a>
+        
+          <div class="summary"><p>Perform type checking</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_null?-instance-method" class="signature"><strong>#is_null?</strong></a>
+        
+          <div class="summary"><p>Perform type checking</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_number?-instance-method" class="signature"><strong>#is_number?</strong></a>
+        
+          <div class="summary"><p>Perform type checking</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_string?-instance-method" class="signature"><strong>#is_string?</strong></a>
+        
+          <div class="summary"><p>Perform type checking</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_undefined?-instance-method" class="signature"><strong>#is_undefined?</strong></a>
+        
+          <div class="summary"><p>Perform type checking</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_b-instance-method" class="signature"><strong>#to_b</strong></a>
+        
+          <div class="summary"><p>Converts JavaScript value to Crystal's <code>Bool</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_f64-instance-method" class="signature"><strong>#to_f64</strong></a>
+        
+          <div class="summary"><p>Converts JavaScript value to Crystal's <code>Float64</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_i32-instance-method" class="signature"><strong>#to_i32</strong></a>
+        
+          <div class="summary"><p>Converts JavaScript value to Crystal's <code>Int32</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_s-instance-method" class="signature"><strong>#to_s</strong></a>
+        
+          <div class="summary"><p>Converts JavaScript value to Crystal's <code>String</code></p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="[](name:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>[]</strong>(name : String)
+
+        <a class="method-permalink" href="#[](name:String)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Gets property <code>name</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="[](index:UInt32)-instance-method">
+      <div class="signature">
+        
+        def <strong>[]</strong>(index : UInt32)
+
+        <a class="method-permalink" href="#[](index:UInt32)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Gets value at index <code>index</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="[]=(name:String,value:JSCPrimative|JSCFunction|JSCObject)-instance-method">
+      <div class="signature">
+        
+        def <strong>[]=</strong>(name : String, value : <a href="JSCPrimative.html">JSCPrimative</a> | <a href="JSCFunction.html">JSCFunction</a> | <a href="JSCObject.html">JSCObject</a>)
+
+        <a class="method-permalink" href="#[]=(name:String,value:JSCPrimative%7CJSCFunction%7CJSCObject)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Set property <code>name</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="[]=(index:UInt32,value:JSCPrimative|JSCFunction|JSCObject)-instance-method">
+      <div class="signature">
+        
+        def <strong>[]=</strong>(index : UInt32, value : <a href="JSCPrimative.html">JSCPrimative</a> | <a href="JSCFunction.html">JSCFunction</a> | <a href="JSCObject.html">JSCObject</a>)
+
+        <a class="method-permalink" href="#[]=(index:UInt32,value:JSCPrimative%7CJSCFunction%7CJSCObject)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Set a value at index <code>index</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_array?-instance-method">
+      <div class="signature">
+        
+        def <strong>is_array?</strong>
+
+        <a class="method-permalink" href="#is_array?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Perform type checking</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_bool?-instance-method">
+      <div class="signature">
+        
+        def <strong>is_bool?</strong>
+
+        <a class="method-permalink" href="#is_bool?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Perform type checking</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_null?-instance-method">
+      <div class="signature">
+        
+        def <strong>is_null?</strong>
+
+        <a class="method-permalink" href="#is_null?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Perform type checking</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_number?-instance-method">
+      <div class="signature">
+        
+        def <strong>is_number?</strong>
+
+        <a class="method-permalink" href="#is_number?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Perform type checking</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_string?-instance-method">
+      <div class="signature">
+        
+        def <strong>is_string?</strong>
+
+        <a class="method-permalink" href="#is_string?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Perform type checking</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_undefined?-instance-method">
+      <div class="signature">
+        
+        def <strong>is_undefined?</strong>
+
+        <a class="method-permalink" href="#is_undefined?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Perform type checking</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_b-instance-method">
+      <div class="signature">
+        
+        def <strong>to_b</strong>
+
+        <a class="method-permalink" href="#to_b-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Converts JavaScript value to Crystal's <code>Bool</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_f64-instance-method">
+      <div class="signature">
+        
+        def <strong>to_f64</strong>
+
+        <a class="method-permalink" href="#to_f64-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Converts JavaScript value to Crystal's <code>Float64</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_i32-instance-method">
+      <div class="signature">
+        
+        def <strong>to_i32</strong>
+
+        <a class="method-permalink" href="#to_i32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Converts JavaScript value to Crystal's <code>Int32</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_s-instance-method">
+      <div class="signature">
+        
+        def <strong>to_s</strong>
+
+        <a class="method-permalink" href="#to_s-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Converts JavaScript value to Crystal's <code>String</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

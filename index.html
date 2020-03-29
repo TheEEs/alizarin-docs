@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.32.1">
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+
+  <meta id="repository-name" content="">
+  <title>README - </title>
+  <script type="text/javascript">
+  CrystalDoc.base_path = "";
+  </script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="/JSCContext" data-name="jsccontext">
+      <a href="JSCContext.html">JSCContext</a>
+      
+    </li>
+  
+  <li class="parent " data-id="/JSCFunction" data-name="jscfunction">
+      <a href="JSCFunction.html">JSCFunction</a>
+      
+        <ul>
+  
+  <li class=" " data-id="/JSCFunction/CallBack" data-name="jscfunction::callback">
+      <a href="JSCFunction/CallBack.html">CallBack</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="/JSCObject" data-name="jscobject">
+      <a href="JSCObject.html">JSCObject</a>
+      
+    </li>
+  
+  <li class=" " data-id="/JSCPrimative" data-name="jscprimative">
+      <a href="JSCPrimative.html">JSCPrimative</a>
+      
+    </li>
+  
+  <li class=" " data-id="/JSObjectUtils" data-name="jsobjectutils">
+      <a href="JSObjectUtils.html">JSObjectUtils</a>
+      
+    </li>
+  
+  <li class=" " data-id="/WebExtension" data-name="webextension">
+      <a href="WebExtension.html">WebExtension</a>
+      
+    </li>
+  
+  <li class="parent " data-id="/WebView" data-name="webview">
+      <a href="WebView.html">WebView</a>
+      
+        <ul>
+  
+  <li class=" " data-id="/WebView/Callback" data-name="webview::callback">
+      <a href="WebView/Callback.html">Callback</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<p><img src="https://www.upsieutoc.com/images/2020/03/29/alizarin.png" alt="alizarin.png"/></p>
+
+<h1><a id="alizarin" class="anchor" href="#alizarin">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Alizarin</h1>
+
+<p><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="LICENSE MIT"/>
+<img src="https://img.shields.io/badge/crystal-0.33.0-orange?style=flat-square" alt="CRYSTAL 0.33.0"/>
+<img src="https://img.shields.io/badge/webkit2gtk-4.0-blue?style=flat-square" alt="webkit2gtk"/></p>
+
+<p><strong>Alizarin</strong> is a Crystal shard that helps you build Linux GUI applications using Web Technologies (HTML5, CSS3, JavaScript). This shard also provides ability to extend JavaScript code with native functionalities.</p>
+
+<h2><a id="installation" class="anchor" href="#installation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Installation</h2>
+
+<ul><li>Add the dependency to your <code>shard.yml</code>:</li></ul>
+
+<pre><code class="language-yaml">   dependencies:
+     alizarin:
+       github: TheEEs/alizarin</code></pre>
+
+<ul><li>Run <code>shards install</code></li></ul>
+
+<p><span class="flag purple">NOTE</span>  This shard requires <code>libwebkit2gtk-4.0</code> to be installed. Makes sure you have it installed into your system.</p>
+
+<pre><code class="language-shell">    $ sudo apt-get install -y libwebkit2gtk-4.0</code></pre>
+
+<h2><a id="usage" class="anchor" href="#usage">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Usage</h2>
+
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;alizarin&quot;</span></code></pre>
+
+<ul><li>Open a browser window and load <a href="https://crystal-lang.org/" target="_blank">Crystal Offical Website</a></li></ul>
+
+<pre><code class="language-crystal">  <span class="k">require</span> <span class="s">&quot;alizarin&quot;</span>
+  <span class="k">require</span> <span class="s">&quot;colorize&quot;</span>
+
+  webview <span class="o">=</span> <span class="t">WebView</span>.<span class="k">new</span> 
+
+  webview.on_close <span class="o">|</span>webview<span class="o">|</span>
+    puts <span class="s">&quot;</span><span class="i">#{</span>webview<span class="i">}</span><span class="s"> is going to close&quot;</span>.colorize <span class="n">:green</span>
+    exit <span class="n">0</span>
+  <span class="k">end</span>
+
+  webview.default_size <span class="n">800</span>, <span class="n">600</span>
+  webview.load_url <span class="s">&quot;https://crystal-lang.org/
+
+  webview.run
+</code></pre>
+
+<ul><li>Show WebInspector (in case if you want to play with page's source code)</li></ul>
+
+<pre><code class="language-crystal">  webview[<span class="s">&quot;enable-developer-extras&quot;</span>] <span class="o">=</span> <span class="n">true</span>
+  webview.show_inspector</code></pre>
+
+<p><span class="flag purple">NOTE</span>  There is also a simple test case located in <code>/spec</code> folder. This test opens a browser window, loads <a href="https://crystal-lang.org/" target="_blank">Crystal Offical Website</a> then writes page <code>body.innerHTML</code> into a file called <code>./htmlBody.txt</code>.</p>
+
+<p>To run test case, types:</p>
+
+<pre><code class="language-shell">$ git clone https://github.com/TheEEs/alizarin
+$ cd alizarin
+$ make
+$ crystal spec</code></pre>
+
+<p>See <a href="https://theees.github.io/alizarin-docs/" target="_blank">Alizarin API</a> for more.</p>
+
+<h2><a id="development" class="anchor" href="#development">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Development</h2>
+
+<p><span class="flag orange">TODO</span>  Write Development instructions here.</p>
+
+<h2><a id="contributing" class="anchor" href="#contributing">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributing</h2>
+
+<ol><li>Fork it <a href="https://github.com/TheEEs/alizarin/fork" target="_blank">https://github.com/TheEEs/alizarin/fork</a></li><li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li><li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li><li>Push to the branch (<code>git push origin my-new-feature</code>)</li><li>Create a new Pull Request</li></ol>
+
+<h2><a id="contributors" class="anchor" href="#contributors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributors</h2>
+
+<ul><li><a href="https://github.com/TheEEs" target="_blank">TheEEs</a> - creator and maintainer</li></ul>
+</div>
+</body>
+</html>

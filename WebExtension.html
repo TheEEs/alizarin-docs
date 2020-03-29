@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.32.1">
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+
+  <meta id="repository-name" content="">
+  <title>WebExtension - </title>
+  <script type="text/javascript">
+    CrystalDoc.base_path = "";
+  </script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="/JSCContext" data-name="jsccontext">
+      <a href="JSCContext.html">JSCContext</a>
+      
+    </li>
+  
+  <li class="parent " data-id="/JSCFunction" data-name="jscfunction">
+      <a href="JSCFunction.html">JSCFunction</a>
+      
+        <ul>
+  
+  <li class=" " data-id="/JSCFunction/CallBack" data-name="jscfunction::callback">
+      <a href="JSCFunction/CallBack.html">CallBack</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="/JSCObject" data-name="jscobject">
+      <a href="JSCObject.html">JSCObject</a>
+      
+    </li>
+  
+  <li class=" " data-id="/JSCPrimative" data-name="jscprimative">
+      <a href="JSCPrimative.html">JSCPrimative</a>
+      
+    </li>
+  
+  <li class=" " data-id="/JSObjectUtils" data-name="jsobjectutils">
+      <a href="JSObjectUtils.html">JSObjectUtils</a>
+      
+    </li>
+  
+  <li class=" current" data-id="/WebExtension" data-name="webextension">
+      <a href="WebExtension.html">WebExtension</a>
+      
+    </li>
+  
+  <li class="parent " data-id="/WebView" data-name="webview">
+      <a href="WebView.html">WebView</a>
+      
+        <ul>
+  
+  <li class=" " data-id="/WebView/Callback" data-name="webview::callback">
+      <a href="WebView/Callback.html">Callback</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> WebExtension
+
+</h1>
+
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>According to architecture of WebKit2GTK, JavaScript code runs in a separeted process called Render Process.
+That's why extending JavaScript can not be done in the same process which manages the <code><a href="WebView.html">WebView</a></code>.
+Instead WebKit2GTK proposes a new way to extend JavaScript with native code called WebExtension.
+A WebExtension is a shared library which will be loaded at runtime by Render Process.
+This module provides some simple macros to reduce redundant works in making a webExtension.
+The following code shows an simple example which provides a JS function. It reads given file on filesystem.</p>
+
+<pre><code><span class="k">require</span> <span class="s">&quot;alizarin&quot;</span>
+<span class="k">include</span> <span class="t">WebExtension</span>
+initialize_extension <span class="k">do</span>
+  <span class="c"># code inside this block will be executed when this Web Extension is loaded by Render Process</span>
+  func <span class="o">=</span> function params <span class="k">do</span>
+    <span class="k">if</span> params.size <span class="o">!=</span> <span class="n">1</span>
+      <span class="t">JSCFunction</span>.raise <span class="s">&quot;</span><span class="i">#{</span>params.size<span class="i">}</span><span class="s"> parameter(s) provided, expect 1&quot;</span>
+      <span class="t">JSCPrimative</span>.<span class="k">new</span> <span class="c"># return JavaScript&#39;s undefined</span>
+    <span class="k">else</span>
+      path <span class="o">=</span> params.first.to_s
+      <span class="t">JSCPrimative</span>.<span class="k">new</span>(<span class="t">File</span>.read(path)) <span class="k">rescue</span> <span class="t">JSCPrimative</span>.<span class="k">new</span> <span class="n">nil</span> <span class="c"># Return content of file at *path*, otherwise return null</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  <span class="t">JSCContext</span>.set_value(<span class="s">&quot;read_file&quot;</span>, func)
+<span class="k">end</span></code></pre>
+
+<p>Builds shared library:</p>
+
+<pre><code class="language-bash">$ crystal build --single-module --link-flags="-shared -fpic" -o &lt;output-path> &lt;source-file></code></pre>
+
+<p><span class="flag purple">NOTE</span>  The shared library should be placed in the directory provided with <code><a href="WebView.html#extension_dir=(directory:String)-instance-method">WebView#extension_dir=</a></code></p>
+
+<p>In main process (which manages an instance of <code><a href="WebView.html">WebView</a></code>), opens WebInspector's console and types:</p>
+
+<pre><code class="language-javascript">read_file("/a-file-located-some-where")</code></pre>
+
+<p>See more:</p>
+
+<ol><li><code><a href="JSCContext.html">JSCContext</a></code></li><li><code><a href="JSCFunction.html">JSCFunction</a></code></li><li><code><a href="JSCPrimative.html">JSCPrimative</a></code></li><li><code><a href="JSCObject.html">JSCObject</a></code></li><li><code><a href="JSObjectUtils.html">JSObjectUtils</a></code></li></ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="macro-summary" class="anchor" href="#macro-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Macro Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#function(arg_name)-macro" class="signature"><strong>function</strong>(arg_name)</a>
+        
+          <div class="summary"><p>This macro initializes an anonymous JavaScript function.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#initialize_extension-macro" class="signature"><strong>initialize_extension</strong></a>
+        
+          <div class="summary"><p>Entry point of a Web Extension shared library</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="macro-detail" class="anchor" href="#macro-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Macro Detail
+  </h2>
+  
+    <div class="entry-detail" id="function(arg_name)-macro">
+      <div class="signature">
+        
+        macro <strong>function</strong>(arg_name)
+
+        <a class="method-permalink" href="#function(arg_name)-macro">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>This macro initializes an anonymous JavaScript function.</p>
+
+<pre><code>func <span class="o">=</span> function p <span class="k">do</span>
+  puts <span class="k">typeof</span>(p) <span class="c"># =&gt; Array(JSCFunction|JSCObject|JSCPrimative)</span>
+  <span class="t">JSCPrimative</span>.<span class="k">new</span> <span class="n">true</span> <span class="c"># JavaScript&#39;s true</span>
+  <span class="c"># Because this block expects a union of (JSCFunction|JSCObject|JSCPrimative) returned.</span>
+<span class="k">end</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="initialize_extension-macro">
+      <div class="signature">
+        
+        macro <strong>initialize_extension</strong>
+
+        <a class="method-permalink" href="#initialize_extension-macro">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Entry point of a Web Extension shared library</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+</div>
+
+</body>
+</html>

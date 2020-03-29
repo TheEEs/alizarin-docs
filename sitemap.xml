@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://google.com/JSCContext.html</loc>
+    <priority>1.0</priority>
+    <changefreq>never</changefreq>
+  </url><url>
+    <loc>https://google.com/JSCFunction.html</loc>
+    <priority>1.0</priority>
+    <changefreq>never</changefreq>
+  </url><url>
+    <loc>https://google.com/JSCObject.html</loc>
+    <priority>1.0</priority>
+    <changefreq>never</changefreq>
+  </url><url>
+    <loc>https://google.com/JSCPrimative.html</loc>
+    <priority>1.0</priority>
+    <changefreq>never</changefreq>
+  </url><url>
+    <loc>https://google.com/JSObjectUtils.html</loc>
+    <priority>1.0</priority>
+    <changefreq>never</changefreq>
+  </url><url>
+    <loc>https://google.com/WebExtension.html</loc>
+    <priority>1.0</priority>
+    <changefreq>never</changefreq>
+  </url><url>
+    <loc>https://google.com/WebView.html</loc>
+    <priority>1.0</priority>
+    <changefreq>never</changefreq>
+  </url>
+</urlset>
