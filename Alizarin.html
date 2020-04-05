@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/TheEEs/alizarin">
-  <title>JSCContext - github.com/TheEEs/alizarin</title>
+  <title>Alizarin - github.com/TheEEs/alizarin</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "";
   </script>
@@ -40,12 +40,12 @@
   <div class="types-list">
     <ul>
   
-  <li class=" " data-id="github.com/TheEEs/alizarin/Alizarin" data-name="alizarin">
+  <li class=" current" data-id="github.com/TheEEs/alizarin/Alizarin" data-name="alizarin">
       <a href="Alizarin.html">Alizarin</a>
       
     </li>
   
-  <li class=" current" data-id="github.com/TheEEs/alizarin/JSCContext" data-name="jsccontext">
+  <li class=" " data-id="github.com/TheEEs/alizarin/JSCContext" data-name="jsccontext">
       <a href="JSCContext.html">JSCContext</a>
       
     </li>
@@ -129,24 +129,13 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">module</span> JSCContext
+  <span class="kind">module</span> Alizarin
 
 </h1>
 
 
 
 
-
-  <h2>
-    <a id="overview" class="anchor" href="#overview">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Overview
-  </h2>
-
-  <p>JSCContext represents a JavaScript execution context</p>
 
 
 
@@ -171,8 +160,8 @@
   </h2>
   
     
-      <a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_context.cr#L2" target="_blank">
-        jsc_context.cr
+      <a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/alizarin.cr#L12" target="_blank">
+        alizarin.cr
       </a>
     
     <br/>
@@ -180,35 +169,28 @@
 
 
 
-
-
-
-
-  <h2>
-    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Class Method Summary
-  </h2>
-  <ul class="list-summary">
+      Constant Summary
+    </h2>
+  
+  <dl>
     
-      <li class="entry-summary">
-        <a href="#get_value(name:String)-class-method" class="signature"><strong>.get_value</strong>(name : String)</a>
-        
-          <div class="summary"><p>Equivalent to JavaScript <code>window[name]</code></p></div>
-        
-      </li>
+      <dt class="entry-const" id="VERSION">
+        <strong>VERSION</strong> = <code><span class="s">`shards version /home/trandat/Desktop/alizarin/src/../`</span></code>
+      </dt>
+      
     
-      <li class="entry-summary">
-        <a href="#set_value(name:String,value)-class-method" class="signature"><strong>.set_value</strong>(name : String, value)</a>
-        
-          <div class="summary"><p>Set a property of the context's global object, in this case <code>window</code></p></div>
-        
-      </li>
-    
-  </ul>
+  </dl>
+
+
+
+
 
 
 
@@ -222,63 +204,6 @@
 
 
 
-
-  <h2>
-    <a id="class-method-detail" class="anchor" href="#class-method-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Class Method Detail
-  </h2>
-  
-    <div class="entry-detail" id="get_value(name:String)-class-method">
-      <div class="signature">
-        
-        def self.<strong>get_value</strong>(name : String)
-
-        <a class="method-permalink" href="#get_value(name:String)-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Equivalent to JavaScript <code>window[name]</code></p>
-
-<pre><code>json <span class="o">=</span> <span class="t">JSCContext</span>.get_value <span class="s">&quot;JSON&quot;</span>
-<span class="c"># Do somethings with JSON object, e.g: json[&quot;parse&quot;].call(JSCPrimative.new &quot;{a:2}&quot;)</span></code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_context.cr#L30" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="set_value(name:String,value)-class-method">
-      <div class="signature">
-        
-        def self.<strong>set_value</strong>(name : String, value)
-
-        <a class="method-permalink" href="#set_value(name:String,value)-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Set a property of the context's global object, in this case <code>window</code></p>
-
-<pre><code><span class="t">JSCContext</span>.set_value <span class="s">&quot;hello&quot;</span>, <span class="t">JSCPrimative</span>.<span class="k">new</span> <span class="s">&quot;world&quot;</span></code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_context.cr#L20" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
 
 
 

@@ -40,6 +40,11 @@
   <div class="types-list">
     <ul>
   
+  <li class=" " data-id="github.com/TheEEs/alizarin/Alizarin" data-name="alizarin">
+      <a href="Alizarin.html">Alizarin</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/TheEEs/alizarin/JSCContext" data-name="jsccontext">
       <a href="JSCContext.html">JSCContext</a>
       
@@ -60,8 +65,28 @@
       
     </li>
   
-  <li class=" " data-id="github.com/TheEEs/alizarin/JSCObject" data-name="jscobject">
+  <li class="parent " data-id="github.com/TheEEs/alizarin/JSCObject" data-name="jscobject">
       <a href="JSCObject.html">JSCObject</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/TheEEs/alizarin/JSCObject/Accessor" data-name="jscobject::accessor(t)">
+      <a href="JSCObject/Accessor.html">Accessor</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/JSCObject/Accessor/Accessibility" data-name="jscobject::accessor::accessibility">
+      <a href="JSCObject/Accessor/Accessibility.html">Accessibility</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -149,7 +174,7 @@ It allows developers to display HTML contents, execute JavaScript code.</p>
   </h2>
   
     
-      <a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_view.cr#L5" target="_blank">
+      <a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L6" target="_blank">
         web_view.cr
       </a>
     
@@ -201,16 +226,16 @@ It allows developers to display HTML contents, execute JavaScript code.</p>
       </li>
     
       <li class="entry-summary">
-        <a href="#default_size(width:UInt32,height:UInt32)-instance-method" class="signature"><strong>#default_size</strong>(width : UInt32, height : UInt32)</a>
+        <a href="#execute_javascript(js_code:String,&block:JSC::JSValue-%3ENil)-instance-method" class="signature"><strong>#execute_javascript</strong>(js_code : String, &block : JSC::JSValue -> Nil)</a>
         
-          <div class="summary"><p>Set default size of browser window</p></div>
+          <div class="summary"><p>Asynchronously executes <em>js_code</em>, <em>block</em> will be called instead of the callback passed to <code><a href="WebView.html#when_script_finished(&b:JSC::JSValue-%3ENil)-instance-method">#when_script_finished</a></code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#execute_javascript(js_code:String)-instance-method" class="signature"><strong>#execute_javascript</strong>(js_code : String)</a>
         
-          <div class="summary"><p>Asynchronously executes JavaScriptCode.</p></div>
+          <div class="summary"><p>Asynchronously executes <em>js_code</em>.</p></div>
         
       </li>
     
@@ -225,6 +250,27 @@ It allows developers to display HTML contents, execute JavaScript code.</p>
         <a href="#extension_dir=(directory:String)-instance-method" class="signature"><strong>#extension_dir=</strong>(directory : String)</a>
         
           <div class="summary"><p>Specifies <em>directory</em> where the webview should look for WebExtension.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#full_screen(state:Bool)-instance-method" class="signature"><strong>#full_screen</strong>(state : Bool)</a>
+        
+          <div class="summary"><p>Set WebView's fullscreen state, passing <code>true</code> makes the webview fullscreen, otherwise.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#go_back-instance-method" class="signature"><strong>#go_back</strong></a>
+        
+          <div class="summary"><p>Loads the previous web page.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#go_forward-instance-method" class="signature"><strong>#go_forward</strong></a>
+        
+          <div class="summary"><p>Loads the next web page.</p></div>
         
       </li>
     
@@ -250,9 +296,23 @@ It allows developers to display HTML contents, execute JavaScript code.</p>
       </li>
     
       <li class="entry-summary">
-        <a href="#run-instance-method" class="signature"><strong>#run</strong></a>
+        <a href="#on_load_process_changed(&block:Float64-%3E_)-instance-method" class="signature"><strong>#on_load_process_changed</strong>(&block : Float64 -> _)</a>
         
-          <div class="summary"><p>Runs browser window.</p></div>
+          <div class="summary"><p>Specifies a callback called each time <code><a href="WebView.html">WebView</a></code> load progress changes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reload-instance-method" class="signature"><strong>#reload</strong></a>
+        
+          <div class="summary"><p>Reloads current content of this <code><a href="WebView.html">WebView</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reload_without_cache-instance-method" class="signature"><strong>#reload_without_cache</strong></a>
+        
+          <div class="summary"><p>Reloads current content of this <code><a href="WebView.html">WebView</a></code> without re-using any cached data.</p></div>
         
       </li>
     
@@ -260,6 +320,13 @@ It allows developers to display HTML contents, execute JavaScript code.</p>
         <a href="#run(blocking:Bool,&block:WebView-%3ENil)-instance-method" class="signature"><strong>#run</strong>(blocking : Bool, &block : WebView -> Nil)</a>
         
           <div class="summary"><p>Run browser window.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#run-instance-method" class="signature"><strong>#run</strong></a>
+        
+          <div class="summary"><p>Runs browser window.</p></div>
         
       </li>
     
@@ -278,6 +345,13 @@ It allows developers to display HTML contents, execute JavaScript code.</p>
       </li>
     
       <li class="entry-summary">
+        <a href="#uuid:UUID-instance-method" class="signature"><strong>#uuid</strong> : UUID</a>
+        
+          <div class="summary"><p>Get this <code><a href="WebView.html">WebView</a></code>'s UUID.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#when_document_loaded(&b:WebView-%3ENil)-instance-method" class="signature"><strong>#when_document_loaded</strong>(&b : WebView -> Nil)</a>
         
           <div class="summary"><p>Specifies a callback which will be called after webview has fully loaded a webpage.</p></div>
@@ -287,7 +361,14 @@ It allows developers to display HTML contents, execute JavaScript code.</p>
       <li class="entry-summary">
         <a href="#when_script_finished(&b:JSC::JSValue-%3ENil)-instance-method" class="signature"><strong>#when_script_finished</strong>(&b : JSC::JSValue -> Nil)</a>
         
-          <div class="summary"><p>Specifies a callback which will be called each time a script executed by <code><a href="WebView.html#execute_javascript(js_code:String)-instance-method">#execute_javascript</a></code> finishes.</p></div>
+          <div class="summary"><p>Specifies a callback which will be called each time a script executed by <code><a href="WebView.html#execute_javascript(js_code:String,&block:JSC::JSValue-%3ENil)-instance-method">#execute_javascript</a></code> finishes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#window_size(width:UInt32,height:UInt32)-instance-method" class="signature"><strong>#window_size</strong>(width : UInt32, height : UInt32)</a>
+        
+          <div class="summary"><p>Set size of browser window</p></div>
         
       </li>
     
@@ -347,7 +428,7 @@ It allows developers to display HTML contents, execute JavaScript code.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_view.cr#L16" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L20" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -385,30 +466,38 @@ webview[<span class="s">&quot;enable-html5-local-storage&quot;</span>] <span cla
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_view.cr#L64" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L75" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="default_size(width:UInt32,height:UInt32)-instance-method">
+    <div class="entry-detail" id="execute_javascript(js_code:String,&amp;block:JSC::JSValue-&gt;Nil)-instance-method">
       <div class="signature">
         
-        def <strong>default_size</strong>(width : UInt32, height : UInt32)
+        def <strong>execute_javascript</strong>(js_code : String, &block : JSC::JSValue -> Nil)
 
-        <a class="method-permalink" href="#default_size(width:UInt32,height:UInt32)-instance-method">#</a>
+        <a class="method-permalink" href="#execute_javascript(js_code:String,&block:JSC::JSValue-%3ENil)-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Set default size of browser window</p>
+          <p>Asynchronously executes <em>js_code</em>, <em>block</em> will be called instead of the callback passed to <code><a href="WebView.html#when_script_finished(&b:JSC::JSValue-%3ENil)-instance-method">#when_script_finished</a></code>.</p>
 
-<pre><code>webview.default_size <span class="n">800</span>, <span class="n">600</span></code></pre>
+<p>This method is useful in situations in which one needs to evaluate returned value of specific JavaScript code, for example:</p>
+
+<pre><code>webview.when_document_loaded <span class="k">do</span>
+  webview.execute_javascript <span class="s">&quot;document.title&quot;</span> <span class="k">do</span> <span class="o">|</span>value<span class="o">|</span>
+    webview.title <span class="o">=</span> <span class="t">String</span>.<span class="k">new</span>(<span class="t">JSC</span>.to_string value)
+  <span class="k">end</span>
+<span class="k">end</span></code></pre>
+
+<p><span class="flag purple">NOTE</span>  <em>block</em> receives a <code>Pointer(Void)</code> as its argument, so it's considered unsafe.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_view.cr#L45" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L192" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -423,7 +512,7 @@ webview[<span class="s">&quot;enable-html5-local-storage&quot;</span>] <span cla
       
         <div class="doc">
           
-          <p>Asynchronously executes JavaScriptCode. After <em>js_code</em> has been successfully executed, the callback passed to <code><a href="WebView.html#when_script_finished(&b:JSC::JSValue-%3ENil)-instance-method">#when_script_finished</a></code> will be called.</p>
+          <p>Asynchronously executes <em>js_code</em>. After <em>js_code</em> has been successfully executed, the callback passed to <code><a href="WebView.html#when_script_finished(&b:JSC::JSValue-%3ENil)-instance-method">#when_script_finished</a></code> will be called.</p>
 
 <pre><code>webview.when_document_loaded <span class="o">|</span>w<span class="o">|</span>
   w.execute_javascript <span class="s">&quot;alert(&#39;LOL&#39;)&quot;</span>
@@ -433,7 +522,7 @@ webview[<span class="s">&quot;enable-html5-local-storage&quot;</span>] <span cla
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_view.cr#L147" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L167" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -454,7 +543,7 @@ webview[<span class="s">&quot;enable-html5-local-storage&quot;</span>] <span cla
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_view.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L14" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -480,7 +569,70 @@ webview.extension_dir <span class="o">=</span> <span class="s">&quot;&lt;your-pa
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_view.cr#L32" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L37" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="full_screen(state:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>full_screen</strong>(state : Bool)
+
+        <a class="method-permalink" href="#full_screen(state:Bool)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Set WebView's fullscreen state, passing <code>true</code> makes the webview fullscreen, otherwise.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L152" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="go_back-instance-method">
+      <div class="signature">
+        
+        def <strong>go_back</strong>
+
+        <a class="method-permalink" href="#go_back-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Loads the previous web page.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L208" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="go_forward-instance-method">
+      <div class="signature">
+        
+        def <strong>go_forward</strong>
+
+        <a class="method-permalink" href="#go_forward-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Loads the next web page.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L213" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -497,14 +649,14 @@ webview.extension_dir <span class="o">=</span> <span class="s">&quot;&lt;your-pa
           
           <p>Loads raw <em>html</em></p>
 
-<p>If <em>base_url</em> is provided and not nil, all relative paths in <em>html</em> will relative to <em>base_url</em>.
+<p>If <em>base_url</em> is a <code>String</code>, all relative paths in <em>html</em> will be resolved against <em>base_url</em>.
 All absolute paths will also have to start with <em>base_url</em> because of security reasons. If not, Web Process might crash.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_view.cr#L81" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L92" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -527,7 +679,7 @@ All absolute paths will also have to start with <em>base_url</em> because of sec
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_view.cr#L73" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L84" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -553,31 +705,77 @@ All absolute paths will also have to start with <em>base_url</em> because of sec
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_view.cr#L93" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L104" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="run-instance-method">
+    <div class="entry-detail" id="on_load_process_changed(&amp;block:Float64-&gt;_)-instance-method">
       <div class="signature">
         
-        def <strong>run</strong>
+        def <strong>on_load_process_changed</strong>(&block : Float64 -> _)
 
-        <a class="method-permalink" href="#run-instance-method">#</a>
+        <a class="method-permalink" href="#on_load_process_changed(&block:Float64-%3E_)-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Runs browser window. This method puts the main process into a loop which blocks until callback specified in <code><a href="WebView.html#on_close(&b:Callback)-instance-method">#on_close</a></code> called.</p>
+          <p>Specifies a callback called each time <code><a href="WebView.html">WebView</a></code> load progress changes.</p>
 
-<pre><code>webview.run
-puts <span class="s">&quot;Good bye&quot;</span> <span class="c"># This line will only be executed after webview main loop is destroyed.</span></code></pre>
+<p>E.g:</p>
+
+<pre><code>webview.on_load_process_changed <span class="k">do</span> <span class="o">|</span>progress<span class="o">|</span>
+  <span class="c"># progress ranges from 0.0 to 1.0</span>
+  puts <span class="s">&quot;Loading </span><span class="i">#{</span>(progress <span class="o">*</span> <span class="n">100</span>).round(<span class="n">2</span>).colorize(<span class="n">:green</span>)<span class="i">}</span><span class="s">&quot;</span>
+<span class="k">end</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_view.cr#L116" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L236" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reload-instance-method">
+      <div class="signature">
+        
+        def <strong>reload</strong>
+
+        <a class="method-permalink" href="#reload-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Reloads current content of this <code><a href="WebView.html">WebView</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L218" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reload_without_cache-instance-method">
+      <div class="signature">
+        
+        def <strong>reload_without_cache</strong>
+
+        <a class="method-permalink" href="#reload_without_cache-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Reloads current content of this <code><a href="WebView.html">WebView</a></code> without re-using any cached data.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L223" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -607,7 +805,31 @@ webview.run blocking: <span class="n">false</span> <span class="k">do</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_view.cr#L133" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L144" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="run-instance-method">
+      <div class="signature">
+        
+        def <strong>run</strong>
+
+        <a class="method-permalink" href="#run-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Runs browser window. This method puts the main process into a loop which blocks until callback specified in <code><a href="WebView.html#on_close(&b:Callback)-instance-method">#on_close</a></code> called.</p>
+
+<pre><code>webview.run
+puts <span class="s">&quot;Good bye&quot;</span> <span class="c"># This line will only be executed after webview main loop is destroyed.</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L127" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -628,7 +850,7 @@ webview.run blocking: <span class="n">false</span> <span class="k">do</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_view.cr#L105" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L116" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -651,7 +873,28 @@ webview.run blocking: <span class="n">false</span> <span class="k">do</span> <sp
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_view.cr#L54" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L65" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="uuid:UUID-instance-method">
+      <div class="signature">
+        
+        def <strong>uuid</strong> : UUID
+
+        <a class="method-permalink" href="#uuid:UUID-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get this <code><a href="WebView.html">WebView</a></code>'s UUID. This is helpful in case of communicating between Web Process and Render Process</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L17" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -668,7 +911,7 @@ webview.run blocking: <span class="n">false</span> <span class="k">do</span> <sp
           
           <p>Specifies a callback which will be called after webview has fully loaded a webpage.
 This is equal to JQuery's <code>$(window).ready</code>.
-This method is the right place to do some logic, for example <code><a href="WebView.html#execute_javascript(js_code:String)-instance-method">#execute_javascript</a></code>.</p>
+This method is the right place to do some logic, for example <code><a href="WebView.html#execute_javascript(js_code:String,&block:JSC::JSValue-%3ENil)-instance-method">#execute_javascript</a></code>.</p>
 
 <pre><code>webview.on_document_loaded <span class="k">do</span> <span class="o">|</span>webview<span class="o">|</span>
   webview.execute_javascript <span class="s">&quot;alert(&#39;Hello&#39;)&quot;</span>
@@ -678,7 +921,7 @@ This method is the right place to do some logic, for example <code><a href="WebV
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_view.cr#L187" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L274" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -693,7 +936,7 @@ This method is the right place to do some logic, for example <code><a href="WebV
       
         <div class="doc">
           
-          <p>Specifies a callback which will be called each time a script executed by <code><a href="WebView.html#execute_javascript(js_code:String)-instance-method">#execute_javascript</a></code> finishes.
+          <p>Specifies a callback which will be called each time a script executed by <code><a href="WebView.html#execute_javascript(js_code:String,&block:JSC::JSValue-%3ENil)-instance-method">#execute_javascript</a></code> finishes.
 The callback <em>b</em> receives a <code>Pointer(Void)</code> as parameter that points to result of the executed JS code.
 For example:</p>
 
@@ -710,7 +953,30 @@ using JavaScriptCore API. Uses <code><a href="WebExtension.html">WebExtension</a
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_view.cr#L174" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L261" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="window_size(width:UInt32,height:UInt32)-instance-method">
+      <div class="signature">
+        
+        def <strong>window_size</strong>(width : UInt32, height : UInt32)
+
+        <a class="method-permalink" href="#window_size(width:UInt32,height:UInt32)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Set size of browser window</p>
+
+<pre><code>webview.window_size <span class="n">800</span>, <span class="n">600</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L56" target="_blank">View source</a>]
         
       </div>
     </div>

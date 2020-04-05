@@ -40,6 +40,11 @@
   <div class="types-list">
     <ul>
   
+  <li class=" " data-id="github.com/TheEEs/alizarin/Alizarin" data-name="alizarin">
+      <a href="Alizarin.html">Alizarin</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/TheEEs/alizarin/JSCContext" data-name="jsccontext">
       <a href="JSCContext.html">JSCContext</a>
       
@@ -60,8 +65,28 @@
       
     </li>
   
-  <li class=" " data-id="github.com/TheEEs/alizarin/JSCObject" data-name="jscobject">
+  <li class="parent " data-id="github.com/TheEEs/alizarin/JSCObject" data-name="jscobject">
       <a href="JSCObject.html">JSCObject</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/TheEEs/alizarin/JSCObject/Accessor" data-name="jscobject::accessor(t)">
+      <a href="JSCObject/Accessor.html">Accessor</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/JSCObject/Accessor/Accessibility" data-name="jscobject::accessor::accessibility">
+      <a href="JSCObject/Accessor/Accessibility.html">Accessibility</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -135,10 +160,10 @@ initialize_extension <span class="k">do</span>
   func <span class="o">=</span> function params <span class="k">do</span>
     <span class="k">if</span> params.size <span class="o">!=</span> <span class="n">1</span>
       <span class="t">JSCFunction</span>.raise <span class="s">&quot;</span><span class="i">#{</span>params.size<span class="i">}</span><span class="s"> parameter(s) provided, expect 1&quot;</span>
-      <span class="t">JSCPrimative</span>.<span class="k">new</span> <span class="c"># return JavaScript&#39;s undefined</span>
+      undefined
     <span class="k">else</span>
       path <span class="o">=</span> params.first.to_s
-      <span class="t">JSCPrimative</span>.<span class="k">new</span>(<span class="t">File</span>.read(path)) <span class="k">rescue</span> <span class="t">JSCPrimative</span>.<span class="k">new</span> <span class="n">nil</span> <span class="c"># Return content of file at *path*, otherwise return null</span>
+      <span class="t">File</span>.read(path) <span class="k">rescue</span> <span class="n">nil</span> <span class="c"># Return content of file at *path*, otherwise return JS&#39;s null</span>
     <span class="k">end</span>
   <span class="k">end</span>
   <span class="t">JSCContext</span>.set_value(<span class="s">&quot;read_file&quot;</span>, func)
@@ -181,7 +206,7 @@ initialize_extension <span class="k">do</span>
   </h2>
   
     
-      <a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_extension.cr#L40" target="_blank">
+      <a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_extension.cr#L40" target="_blank">
         web_extension.cr
       </a>
     
@@ -193,6 +218,25 @@ initialize_extension <span class="k">do</span>
 
 
 
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#uuid-class-method" class="signature"><strong>.uuid</strong></a>
+        
+          <div class="summary"><p>Gets UUID hex string of the <code><a href="WebView.html">WebView</a></code> which loads this extension </p></div>
+        
+      </li>
+    
+  </ul>
 
 
 
@@ -222,6 +266,20 @@ initialize_extension <span class="k">do</span>
         
       </li>
     
+      <li class="entry-summary">
+        <a href="#new(constructor,*args)-macro" class="signature"><strong>new</strong>(constructor, *args)</a>
+        
+          <div class="summary"><p>JavaScript's <code><a href="WebExtension.html#new(constructor,*args)-macro">new</a></code> operator, returns <code><a href="JSCPrimative.html">JSCPrimative</a> | <a href="JSCFunction.html">JSCFunction</a> | <a href="JSCObject.html">JSCObject</a></code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#undefined-macro" class="signature"><strong>undefined</strong></a>
+        
+          <div class="summary"><p>JavaScript <code><a href="WebExtension.html#undefined-macro">undefined</a></code></p></div>
+        
+      </li>
+    
   </ul>
 
 
@@ -232,6 +290,37 @@ initialize_extension <span class="k">do</span>
 
 
 
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="uuid-class-method">
+      <div class="signature">
+        
+        def self.<strong>uuid</strong>
+
+        <a class="method-permalink" href="#uuid-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Gets UUID hex string of the <code><a href="WebView.html">WebView</a></code> which loads this extension </p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_extension.cr#L49" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 
@@ -260,15 +349,20 @@ initialize_extension <span class="k">do</span>
 
 <pre><code>func <span class="o">=</span> function p <span class="k">do</span>
   puts <span class="k">typeof</span>(p) <span class="c"># =&gt; Array(JSCFunction|JSCObject|JSCPrimative)</span>
-  <span class="t">JSCPrimative</span>.<span class="k">new</span> <span class="n">true</span> <span class="c"># JavaScript&#39;s true</span>
-  <span class="c"># Because this block expects a union of (JSCFunction|JSCObject|JSCPrimative) returned.</span>
+  <span class="c"># Developers can return anything as long as it has method to_jsc() : JSC::JSValue</span>
+  <span class="k">if</span> p.size <span class="o">!=</span> <span class="n">0</span>
+    <span class="t">JSCPrimative</span>.<span class="k">new</span> <span class="n">true</span>
+  <span class="k">else</span>
+    <span class="n">false</span>
+  <span class="k">else</span>
+  <span class="c"># return type is (JSCPrimative|Bool), it&#39;s ok because both JSCPrimative and Bool have method to_jsc()</span>
 <span class="k">end</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_extension.cr#L73" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_extension.cr#L93" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -289,7 +383,59 @@ initialize_extension <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/web_extension.cr#L42" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_extension.cr#L54" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(constructor,*args)-macro">
+      <div class="signature">
+        
+        macro <strong>new</strong>(constructor, *args)
+
+        <a class="method-permalink" href="#new(constructor,*args)-macro">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>JavaScript's <code><a href="WebExtension.html#new(constructor,*args)-macro">new</a></code> operator, returns <code><a href="JSCPrimative.html">JSCPrimative</a> | <a href="JSCFunction.html">JSCFunction</a> | <a href="JSCObject.html">JSCObject</a></code></p>
+
+<pre><code><span class="k">include</span> <span class="t">WebExtension</span>
+promise <span class="o">=</span> <span class="t">JSCContext</span>.get_value(<span class="s">&quot;Promise&quot;</span>)
+<span class="k">new</span> <span class="t">Promise</span>, function p {
+  resolve <span class="o">=</span> p.first.<span class="k">as</span>(<span class="t">JSCFunction</span>)
+  spawn <span class="k">do</span>
+    <span class="n">1000</span>.times{ sleep <span class="n">0.1</span> }
+    resolve.call <span class="n">true</span>
+  <span class="k">end</span>
+}</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_extension.cr#L134" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="undefined-macro">
+      <div class="signature">
+        
+        macro <strong>undefined</strong>
+
+        <a class="method-permalink" href="#undefined-macro">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>JavaScript <code><a href="WebExtension.html#undefined-macro">undefined</a></code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_extension.cr#L100" target="_blank">View source</a>]
         
       </div>
     </div>

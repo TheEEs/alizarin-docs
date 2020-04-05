@@ -40,6 +40,11 @@
   <div class="types-list">
     <ul>
   
+  <li class=" " data-id="github.com/TheEEs/alizarin/Alizarin" data-name="alizarin">
+      <a href="Alizarin.html">Alizarin</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/TheEEs/alizarin/JSCContext" data-name="jsccontext">
       <a href="JSCContext.html">JSCContext</a>
       
@@ -60,8 +65,28 @@
       
     </li>
   
-  <li class=" current" data-id="github.com/TheEEs/alizarin/JSCObject" data-name="jscobject">
+  <li class="parent open current" data-id="github.com/TheEEs/alizarin/JSCObject" data-name="jscobject">
       <a href="JSCObject.html">JSCObject</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/TheEEs/alizarin/JSCObject/Accessor" data-name="jscobject::accessor(t)">
+      <a href="JSCObject/Accessor.html">Accessor</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/JSCObject/Accessor/Accessibility" data-name="jscobject::accessor::accessibility">
+      <a href="JSCObject/Accessor/Accessibility.html">Accessibility</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -162,7 +187,14 @@
   </h2>
   
     
-      <a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/jsc_object.cr#L2" target="_blank">
+      <a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_object/accessor.cr#L1" target="_blank">
+        jsc_object/accessor.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_object.cr#L4" target="_blank">
         jsc_object.cr
       </a>
     
@@ -196,6 +228,32 @@
 
 
 
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#define_property(name,value,flags:Accessor::Accessibility)-instance-method" class="signature"><strong>#define_property</strong>(name, value, flags : Accessor::Accessibility)</a>
+        
+          <div class="summary"><p>Defines a JavaScript object's property, this is equal to JavaScript <code>Object.defineProperty</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#mount_accessor(accessor:Accessor)-instance-method" class="signature"><strong>#mount_accessor</strong>(accessor : Accessor)</a>
+        
+          <div class="summary"><p>Defines a JavaScript object's property, this is equal to JavaScript <code>Object.defineProperty</code>.</p></div>
+        
+      </li>
+    
+  </ul>
+
 
 
 
@@ -212,8 +270,8 @@
     []</a>, 
     
   
-    <a href="JSObjectUtils.html#[]=(name:String,value:JSCPrimative%7CJSCFunction%7CJSCObject)-instance-method" class="tooltip">
-      <span>[]=(name : String, value : JSCPrimative | JSCFunction | JSCObject)<br/>[]=(index : UInt32, value : JSCPrimative | JSCFunction | JSCObject)</span>
+    <a href="JSObjectUtils.html#[]=(name:String,value)-instance-method" class="tooltip">
+      <span>[]=(name : String, value)<br/>[]=(index : UInt32, value)</span>
     []=</a>, 
     
   
@@ -334,7 +392,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/46cf1025b79922d67a0b90386076db11dc056f43/src/jsc_object.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_object.cr#L15" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -343,6 +401,59 @@
 
 
 
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="define_property(name,value,flags:Accessor::Accessibility)-instance-method">
+      <div class="signature">
+        
+        def <strong>define_property</strong>(name, value, flags : <a href="JSCObject/Accessor/Accessibility.html">Accessor::Accessibility</a>)
+
+        <a class="method-permalink" href="#define_property(name,value,flags:Accessor::Accessibility)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Defines a JavaScript object's property, this is equal to JavaScript <code>Object.defineProperty</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_object.cr#L44" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="mount_accessor(accessor:Accessor)-instance-method">
+      <div class="signature">
+        
+        def <strong>mount_accessor</strong>(accessor : <a href="JSCObject/Accessor.html">Accessor</a>)
+
+        <a class="method-permalink" href="#mount_accessor(accessor:Accessor)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Defines a JavaScript object's property, this is equal to JavaScript <code>Object.defineProperty</code>.
+See <code><a href="JSCObject/Accessor.html">Accessor</a></code> for more.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_object.cr#L26" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 

@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/TheEEs/alizarin">
-  <title>JSCContext - github.com/TheEEs/alizarin</title>
+  <title>Pointer(T) - github.com/TheEEs/alizarin</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "";
   </script>
@@ -40,12 +40,7 @@
   <div class="types-list">
     <ul>
   
-  <li class=" " data-id="github.com/TheEEs/alizarin/Alizarin" data-name="alizarin">
-      <a href="Alizarin.html">Alizarin</a>
-      
-    </li>
-  
-  <li class=" current" data-id="github.com/TheEEs/alizarin/JSCContext" data-name="jsccontext">
+  <li class=" " data-id="github.com/TheEEs/alizarin/JSCContext" data-name="jsccontext">
       <a href="JSCContext.html">JSCContext</a>
       
     </li>
@@ -100,6 +95,11 @@
       
     </li>
   
+  <li class=" current" data-id="github.com/TheEEs/alizarin/Pointer" data-name="pointer(t)">
+      <a href="Pointer.html">Pointer</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/TheEEs/alizarin/WebExtension" data-name="webextension">
       <a href="WebExtension.html">WebExtension</a>
       
@@ -129,10 +129,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">module</span> JSCContext
+  <span class="kind">struct</span> Pointer(T)
 
 </h1>
 
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Pointer.html">Pointer(T)</a></li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -146,11 +148,49 @@
     Overview
   </h2>
 
-  <p>JSCContext represents a JavaScript execution context</p>
+  <p>A typed pointer to some memory.</p>
+
+<p>This is the only unsafe type in Crystal. If you are using a pointer, you are writing
+unsafe code because a pointer doesn't know where it's pointing to nor how much memory
+starting from it is valid. However, pointers make it possible to interface with C and
+to implement efficient data structures. For example, both <code>Array</code> and <code>Hash</code> are
+implemented using pointers.</p>
+
+<p>You can obtain pointers in four ways: <code>#new</code>, <code>#malloc</code>, <code>pointerof</code> and by calling a C
+function that returns a pointer.</p>
+
+<p><code>pointerof(x)</code>, where <em>x</em> is a variable or an instance variable, returns a pointer to
+that variable:</p>
+
+<pre><code>x <span class="o">=</span> <span class="n">1</span>
+ptr <span class="o">=</span> <span class="k">pointerof</span>(x)
+ptr.value <span class="o">=</span> <span class="n">2</span>
+x <span class="c"># =&gt; 2</span></code></pre>
+
+<p>Note that a pointer is <em>falsey</em> if it's null (if its address is zero).</p>
+
+<p>When calling a C function that expects a pointer you can also pass <code>nil</code> instead of using
+<code>Pointer.null</code> to construct a null pointer.</p>
+
+<p>For a safe alternative, see <code>Slice</code>, which is a pointer with a size and with bounds checking.</p>
 
 
 
 
+
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type">Comparable(<a href="Pointer.html">Pointer(T)</a>)</li>
+    
+  </ul>
 
 
 
@@ -171,8 +211,8 @@
   </h2>
   
     
-      <a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_context.cr#L2" target="_blank">
-        jsc_context.cr
+      <a href="https://github.com/TheEEs/alizarin/blob/ab04bcf4a2033e34992c94cdb348a49e049fa070/src/language_extensions/to_jsc.cr#L47" target="_blank">
+        language_extensions/to_jsc.cr
       </a>
     
     <br/>
@@ -184,27 +224,20 @@
 
 
 
+
+
   <h2>
-    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Class Method Summary
+    Instance Method Summary
   </h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#get_value(name:String)-class-method" class="signature"><strong>.get_value</strong>(name : String)</a>
-        
-          <div class="summary"><p>Equivalent to JavaScript <code>window[name]</code></p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#set_value(name:String,value)-class-method" class="signature"><strong>.set_value</strong>(name : String, value)</a>
-        
-          <div class="summary"><p>Set a property of the context's global object, in this case <code>window</code></p></div>
+        <a href="#to_jsc-instance-method" class="signature"><strong>#to_jsc</strong></a>
         
       </li>
     
@@ -214,73 +247,70 @@
 
 
 
-
-
 <div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
   
 </div>
 
 
 
 
+
+
   <h2>
-    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Class Method Detail
+    Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="get_value(name:String)-class-method">
+    <div class="entry-detail" id="to_jsc-instance-method">
       <div class="signature">
         
-        def self.<strong>get_value</strong>(name : String)
+        def <strong>to_jsc</strong>
 
-        <a class="method-permalink" href="#get_value(name:String)-class-method">#</a>
+        <a class="method-permalink" href="#to_jsc-instance-method">#</a>
       </div>
-      
-        <div class="doc">
-          
-          <p>Equivalent to JavaScript <code>window[name]</code></p>
-
-<pre><code>json <span class="o">=</span> <span class="t">JSCContext</span>.get_value <span class="s">&quot;JSON&quot;</span>
-<span class="c"># Do somethings with JSON object, e.g: json[&quot;parse&quot;].call(JSCPrimative.new &quot;{a:2}&quot;)</span></code></pre>
-        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_context.cr#L30" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/ab04bcf4a2033e34992c94cdb348a49e049fa070/src/language_extensions/to_jsc.cr#L48" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="set_value(name:String,value)-class-method">
-      <div class="signature">
-        
-        def self.<strong>set_value</strong>(name : String, value)
-
-        <a class="method-permalink" href="#set_value(name:String,value)-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Set a property of the context's global object, in this case <code>window</code></p>
-
-<pre><code><span class="t">JSCContext</span>.set_value <span class="s">&quot;hello&quot;</span>, <span class="t">JSCPrimative</span>.<span class="k">new</span> <span class="s">&quot;world&quot;</span></code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_context.cr#L20" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-
-
 
 
 

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.32.1">
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+
+  <meta id="repository-name" content="github.com/TheEEs/alizarin">
+  <title>JSCObject::Accessor(T) - github.com/TheEEs/alizarin</title>
+  <script type="text/javascript">
+    CrystalDoc.base_path = "../";
+  </script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="../index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/Alizarin" data-name="alizarin">
+      <a href="../Alizarin.html">Alizarin</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/JSCContext" data-name="jsccontext">
+      <a href="../JSCContext.html">JSCContext</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/TheEEs/alizarin/JSCFunction" data-name="jscfunction">
+      <a href="../JSCFunction.html">JSCFunction</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/JSCFunction/CallBack" data-name="jscfunction::callback">
+      <a href="../JSCFunction/CallBack.html">CallBack</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/TheEEs/alizarin/JSCObject" data-name="jscobject">
+      <a href="../JSCObject.html">JSCObject</a>
+      
+        <ul>
+  
+  <li class="parent open current" data-id="github.com/TheEEs/alizarin/JSCObject/Accessor" data-name="jscobject::accessor(t)">
+      <a href="../JSCObject/Accessor.html">Accessor</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/JSCObject/Accessor/Accessibility" data-name="jscobject::accessor::accessibility">
+      <a href="../JSCObject/Accessor/Accessibility.html">Accessibility</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/JSCPrimative" data-name="jscprimative">
+      <a href="../JSCPrimative.html">JSCPrimative</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/JSObjectUtils" data-name="jsobjectutils">
+      <a href="../JSObjectUtils.html">JSObjectUtils</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebExtension" data-name="webextension">
+      <a href="../WebExtension.html">WebExtension</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/TheEEs/alizarin/WebView" data-name="webview">
+      <a href="../WebView.html">WebView</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/Callback" data-name="webview::callback">
+      <a href="../WebView/Callback.html">Callback</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> JSCObject::Accessor(T)
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../JSCObject/Accessor.html">JSCObject::Accessor(T)</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>An <code><a href="../JSCObject/Accessor.html">Accessor</a></code> represents a JavaScript object's property which is defined via JS <code>Object.defineProperty</code>
+An <code><a href="../JSCObject/Accessor.html">Accessor</a></code> can define its own setter or getter via <code>Accessor#get(&block)</code> and <code>Accessor#set(&block)</code>.
+An <code><a href="../JSCObject/Accessor.html">Accessor</a></code> can have both setter and getter, either, or even none.</p>
+
+<pre><code><span class="k">require</span> <span class="s">&quot;uuid&quot;</span>
+uuid <span class="o">=</span> <span class="t">JSCObject</span>.<span class="k">new</span>
+uuid_get_only_accessor <span class="o">=</span> <span class="t">JSCObject</span><span class="t">::</span><span class="t">Accessor</span>(<span class="t">String</span>).<span class="k">new</span> name: <span class="s">&quot;random&quot;</span>
+uuid.get <span class="k">do</span>
+  <span class="t">UUID</span>.random
+<span class="k">end</span>
+uuid.mount_accessor uuid_get_only_accessor
+<span class="t">JSCContext</span>.set_value <span class="s">&quot;UUID&quot;</span>, uuid</code></pre>
+
+<p>In WebInspector, types <code>UUID.random</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_object/accessor.cr#L16" target="_blank">
+        jsc_object/accessor.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new(name:String)-class-method" class="signature"><strong>.new</strong>(name : String)</a>
+        
+          <div class="summary"><p>Initializes a new <code><a href="../JSCObject/Accessor.html">Accessor</a></code>, given it <em>name</em>.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#get(&block:-%3ET)-instance-method" class="signature"><strong>#get</strong>(&block :  -> T)</a>
+        
+          <div class="summary"><p>Specifies <code><a href="../JSCObject/Accessor.html">Accessor</a></code>'s getter</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#set(&block:Proc(JSCFunction%7CJSCObject%7CJSCPrimative,Nil))-instance-method" class="signature"><strong>#set</strong>(&block : Proc(JSCFunction | JSCObject | JSCPrimative, Nil))</a>
+        
+          <div class="summary"><p>Specifies <code><a href="../JSCObject/Accessor.html">Accessor</a></code>'s setter.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(name:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(name : String)
+
+        <a class="method-permalink" href="#new(name:String)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Initializes a new <code><a href="../JSCObject/Accessor.html">Accessor</a></code>, given it <em>name</em>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_object/accessor.cr#L32" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="get(&amp;block:-&gt;T)-instance-method">
+      <div class="signature">
+        
+        def <strong>get</strong>(&block :  -> T)
+
+        <a class="method-permalink" href="#get(&block:-%3ET)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Specifies <code><a href="../JSCObject/Accessor.html">Accessor</a></code>'s getter</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_object/accessor.cr#L41" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="set(&amp;block:Proc(JSCFunction|JSCObject|JSCPrimative,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>set</strong>(&block : Proc(<a href="../JSCFunction.html">JSCFunction</a> | <a href="../JSCObject.html">JSCObject</a> | <a href="../JSCPrimative.html">JSCPrimative</a>, Nil))
+
+        <a class="method-permalink" href="#set(&block:Proc(JSCFunction%7CJSCObject%7CJSCPrimative,Nil))-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Specifies <code><a href="../JSCObject/Accessor.html">Accessor</a></code>'s setter.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_object/accessor.cr#L36" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
