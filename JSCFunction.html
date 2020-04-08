@@ -45,6 +45,11 @@
       
     </li>
   
+  <li class=" " data-id="github.com/TheEEs/alizarin/Invokable" data-name="invokable">
+      <a href="Invokable.html">Invokable</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/TheEEs/alizarin/JSCContext" data-name="jsccontext">
       <a href="JSCContext.html">JSCContext</a>
       
@@ -100,8 +105,18 @@
       
     </li>
   
-  <li class=" " data-id="github.com/TheEEs/alizarin/WebExtension" data-name="webextension">
+  <li class="parent " data-id="github.com/TheEEs/alizarin/WebExtension" data-name="webextension">
       <a href="WebExtension.html">WebExtension</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebExtension/IPC" data-name="webextension::ipc">
+      <a href="WebExtension/IPC.html">IPC</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -112,6 +127,31 @@
   
   <li class=" " data-id="github.com/TheEEs/alizarin/WebView/Callback" data-name="webview::callback">
       <a href="WebView/Callback.html">Callback</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/Dialog" data-name="webview::dialog">
+      <a href="WebView/Dialog.html">Dialog</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/DialogFileFilter" data-name="webview::dialogfilefilter">
+      <a href="WebView/DialogFileFilter.html">DialogFileFilter</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/OpenFileDialog" data-name="webview::openfiledialog">
+      <a href="WebView/OpenFileDialog.html">OpenFileDialog</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/SaveFileDialog" data-name="webview::savefiledialog">
+      <a href="WebView/SaveFileDialog.html">SaveFileDialog</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/SelectFolderDialog" data-name="webview::selectfolderdialog">
+      <a href="WebView/SelectFolderDialog.html">SelectFolderDialog</a>
       
     </li>
   
@@ -164,6 +204,8 @@
   </h2>
   <ul class="other-types-list">
     
+      <li class="other-type"><a href="Invokable.html">Invokable</a></li>
+    
       <li class="other-type"><a href="JSObjectUtils.html">JSObjectUtils</a></li>
     
   </ul>
@@ -187,8 +229,8 @@
   </h2>
   
     
-      <a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_function.cr#L2" target="_blank">
-        jsc_function.cr
+      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_function.cr#L2" target="_blank">
+        components/jsc_function.cr
       </a>
     
     <br/>
@@ -264,6 +306,25 @@
 
 
 <div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="Invokable.html">Invokable</a></code></h3>
+  
+  
+    <a href="Invokable.html#invoke(name:String,*args)-instance-method" class="tooltip">
+      <span>invoke(name : String, *args)</span>
+    invoke</a>
+    
+  
+
+
+    
+
+
+    
+
+
   
     
 
@@ -404,7 +465,7 @@ For short, uses <code><a href="WebExtension.html#function(arg_name)-macro">WebEx
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_function.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_function.cr#L27" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -437,7 +498,7 @@ For short, uses <code><a href="WebExtension.html#function(arg_name)-macro">WebEx
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_function.cr#L85" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_function.cr#L89" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -469,12 +530,15 @@ For short, uses <code><a href="WebExtension.html#function(arg_name)-macro">WebEx
 <p>E.g:</p>
 
 <pre><code>sum_function.call <span class="t">JSCPrimative</span>.<span class="k">new</span>(<span class="n">1</span>), <span class="n">2</span></code></pre>
+
+<p><span class="flag purple">NOTE</span>  Calling function this way won't make JS <code>this</code> operator usable. In case of
+invoking object's method, uses <code><a href="Invokable.html#invoke(name:String,*args)-instance-method">Invokable#invoke</a></code> instead.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_function.cr#L66" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_function.cr#L70" target="_blank">View source</a>]
         
       </div>
     </div>

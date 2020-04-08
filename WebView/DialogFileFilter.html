@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/TheEEs/alizarin">
-  <title>JSCFunction::CallBack - github.com/TheEEs/alizarin</title>
+  <title>WebView::DialogFileFilter - github.com/TheEEs/alizarin</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "../";
   </script>
@@ -55,12 +55,12 @@
       
     </li>
   
-  <li class="parent open current" data-id="github.com/TheEEs/alizarin/JSCFunction" data-name="jscfunction">
+  <li class="parent " data-id="github.com/TheEEs/alizarin/JSCFunction" data-name="jscfunction">
       <a href="../JSCFunction.html">JSCFunction</a>
       
         <ul>
   
-  <li class=" current" data-id="github.com/TheEEs/alizarin/JSCFunction/CallBack" data-name="jscfunction::callback">
+  <li class=" " data-id="github.com/TheEEs/alizarin/JSCFunction/CallBack" data-name="jscfunction::callback">
       <a href="../JSCFunction/CallBack.html">CallBack</a>
       
     </li>
@@ -120,7 +120,7 @@
       
     </li>
   
-  <li class="parent " data-id="github.com/TheEEs/alizarin/WebView" data-name="webview">
+  <li class="parent open current" data-id="github.com/TheEEs/alizarin/WebView" data-name="webview">
       <a href="../WebView.html">WebView</a>
       
         <ul>
@@ -135,7 +135,7 @@
       
     </li>
   
-  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/DialogFileFilter" data-name="webview::dialogfilefilter">
+  <li class=" current" data-id="github.com/TheEEs/alizarin/WebView/DialogFileFilter" data-name="webview::dialogfilefilter">
       <a href="../WebView/DialogFileFilter.html">DialogFileFilter</a>
       
     </li>
@@ -169,25 +169,28 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">alias</span> JSCFunction::CallBack
+  <span class="kind">struct</span> WebView::DialogFileFilter
 
 </h1>
 
 
-
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../WebView/DialogFileFilter.html">WebView::DialogFileFilter</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
 
   <h2>
-    <a id="alias-definition" class="anchor" href="#alias-definition">
+    <a id="overview" class="anchor" href="#overview">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Alias Definition
+    Overview
   </h2>
-  <code>Array(<a href="../JSCFunction.html">JSCFunction</a> | <a href="../JSCObject.html">JSCObject</a> | <a href="../JSCPrimative.html">JSCPrimative</a>) -> <a href="../JSCFunction.html">JSCFunction</a> | <a href="../JSCObject.html">JSCObject</a> | <a href="../JSCPrimative.html">JSCPrimative</a></code>
+
+  <p>This module helps filtering files shown in dialogs. E.g: "only show markdown file"</p>
+
+
 
 
 
@@ -210,8 +213,8 @@
   </h2>
   
     
-      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_function.cr#L9" target="_blank">
-        components/jsc_function.cr
+      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view/dialog_file_filter.cr#L3" target="_blank">
+        components/web_view/dialog_file_filter.cr
       </a>
     
     <br/>
@@ -220,6 +223,25 @@
 
 
 
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new(name:String,pattern:String)-class-method" class="signature"><strong>.new</strong>(name : String, pattern : String)</a>
+        
+          <div class="summary"><p>Initializes a new <code><a href="../WebView/DialogFileFilter.html">DialogFileFilter</a></code>, given its name and pattern</p></div>
+        
+      </li>
+    
+  </ul>
 
 
 
@@ -231,8 +253,71 @@
 
 <div class="methods-inherited">
   
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
 </div>
 
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(name:String,pattern:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(name : String, pattern : String)
+
+        <a class="method-permalink" href="#new(name:String,pattern:String)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Initializes a new <code><a href="../WebView/DialogFileFilter.html">DialogFileFilter</a></code>, given its name and pattern</p>
+
+<pre><code><span class="t">WebView</span><span class="t">::</span><span class="t">DialogFileFilter</span>.<span class="k">new</span> <span class="s">&quot;Markdown&quot;</span>, <span class="s">&quot;*.md&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view/dialog_file_filter.cr#L8" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 

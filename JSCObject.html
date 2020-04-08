@@ -45,6 +45,11 @@
       
     </li>
   
+  <li class=" " data-id="github.com/TheEEs/alizarin/Invokable" data-name="invokable">
+      <a href="Invokable.html">Invokable</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/TheEEs/alizarin/JSCContext" data-name="jsccontext">
       <a href="JSCContext.html">JSCContext</a>
       
@@ -100,8 +105,18 @@
       
     </li>
   
-  <li class=" " data-id="github.com/TheEEs/alizarin/WebExtension" data-name="webextension">
+  <li class="parent " data-id="github.com/TheEEs/alizarin/WebExtension" data-name="webextension">
       <a href="WebExtension.html">WebExtension</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebExtension/IPC" data-name="webextension::ipc">
+      <a href="WebExtension/IPC.html">IPC</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -112,6 +127,31 @@
   
   <li class=" " data-id="github.com/TheEEs/alizarin/WebView/Callback" data-name="webview::callback">
       <a href="WebView/Callback.html">Callback</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/Dialog" data-name="webview::dialog">
+      <a href="WebView/Dialog.html">Dialog</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/DialogFileFilter" data-name="webview::dialogfilefilter">
+      <a href="WebView/DialogFileFilter.html">DialogFileFilter</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/OpenFileDialog" data-name="webview::openfiledialog">
+      <a href="WebView/OpenFileDialog.html">OpenFileDialog</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/SaveFileDialog" data-name="webview::savefiledialog">
+      <a href="WebView/SaveFileDialog.html">SaveFileDialog</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/SelectFolderDialog" data-name="webview::selectfolderdialog">
+      <a href="WebView/SelectFolderDialog.html">SelectFolderDialog</a>
       
     </li>
   
@@ -164,6 +204,8 @@
   </h2>
   <ul class="other-types-list">
     
+      <li class="other-type"><a href="Invokable.html">Invokable</a></li>
+    
       <li class="other-type"><a href="JSObjectUtils.html">JSObjectUtils</a></li>
     
   </ul>
@@ -187,15 +229,15 @@
   </h2>
   
     
-      <a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_object/accessor.cr#L1" target="_blank">
-        jsc_object/accessor.cr
+      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_object/accessor.cr#L1" target="_blank">
+        components/jsc_object/accessor.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_object.cr#L4" target="_blank">
-        jsc_object.cr
+      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_object.cr#L4" target="_blank">
+        components/jsc_object.cr
       </a>
     
     <br/>
@@ -252,6 +294,13 @@
         
       </li>
     
+      <li class="entry-summary">
+        <a href="#properties-instance-method" class="signature"><strong>#properties</strong></a>
+        
+          <div class="summary"><p>Enumerates all properties of this <code><a href="JSCObject.html">JSCObject</a></code>.</p></div>
+        
+      </li>
+    
   </ul>
 
 
@@ -259,6 +308,25 @@
 
 
 <div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="Invokable.html">Invokable</a></code></h3>
+  
+  
+    <a href="Invokable.html#invoke(name:String,*args)-instance-method" class="tooltip">
+      <span>invoke(name : String, *args)</span>
+    invoke</a>
+    
+  
+
+
+    
+
+
+    
+
+
   
     
 
@@ -392,7 +460,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_object.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_object.cr#L16" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -427,7 +495,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_object.cr#L44" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_object.cr#L45" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -449,7 +517,28 @@ See <code><a href="JSCObject/Accessor.html">Accessor</a></code> for more.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/jsc_object.cr#L26" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_object.cr#L27" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="properties-instance-method">
+      <div class="signature">
+        
+        def <strong>properties</strong>
+
+        <a class="method-permalink" href="#properties-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Enumerates all properties of this <code><a href="JSCObject.html">JSCObject</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_object.cr#L50" target="_blank">View source</a>]
         
       </div>
     </div>

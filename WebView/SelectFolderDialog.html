@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/TheEEs/alizarin">
-  <title>JSCFunction::CallBack - github.com/TheEEs/alizarin</title>
+  <title>WebView::SelectFolderDialog - github.com/TheEEs/alizarin</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "../";
   </script>
@@ -55,12 +55,12 @@
       
     </li>
   
-  <li class="parent open current" data-id="github.com/TheEEs/alizarin/JSCFunction" data-name="jscfunction">
+  <li class="parent " data-id="github.com/TheEEs/alizarin/JSCFunction" data-name="jscfunction">
       <a href="../JSCFunction.html">JSCFunction</a>
       
         <ul>
   
-  <li class=" current" data-id="github.com/TheEEs/alizarin/JSCFunction/CallBack" data-name="jscfunction::callback">
+  <li class=" " data-id="github.com/TheEEs/alizarin/JSCFunction/CallBack" data-name="jscfunction::callback">
       <a href="../JSCFunction/CallBack.html">CallBack</a>
       
     </li>
@@ -120,7 +120,7 @@
       
     </li>
   
-  <li class="parent " data-id="github.com/TheEEs/alizarin/WebView" data-name="webview">
+  <li class="parent open current" data-id="github.com/TheEEs/alizarin/WebView" data-name="webview">
       <a href="../WebView.html">WebView</a>
       
         <ul>
@@ -150,7 +150,7 @@
       
     </li>
   
-  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/SelectFolderDialog" data-name="webview::selectfolderdialog">
+  <li class=" current" data-id="github.com/TheEEs/alizarin/WebView/SelectFolderDialog" data-name="webview::selectfolderdialog">
       <a href="../WebView/SelectFolderDialog.html">SelectFolderDialog</a>
       
     </li>
@@ -169,27 +169,45 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">alias</span> JSCFunction::CallBack
+  <span class="kind">class</span> WebView::SelectFolderDialog
 
 </h1>
 
 
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../WebView/SelectFolderDialog.html">WebView::SelectFolderDialog</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p><code><a href="../WebView/OpenFileDialog.html">OpenFileDialog</a></code> is used to select a file in file system.
+When it's done, it returns the path of selected file.</p>
 
 
 
 
 
   <h2>
-    <a id="alias-definition" class="anchor" href="#alias-definition">
+    <a id="included-modules" class="anchor" href="#included-modules">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Alias Definition
+    Included Modules
   </h2>
-  <code>Array(<a href="../JSCFunction.html">JSCFunction</a> | <a href="../JSCObject.html">JSCObject</a> | <a href="../JSCPrimative.html">JSCPrimative</a>) -> <a href="../JSCFunction.html">JSCFunction</a> | <a href="../JSCObject.html">JSCObject</a> | <a href="../JSCPrimative.html">JSCPrimative</a></code>
-
-
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../WebView/Dialog.html">WebView::Dialog</a></li>
+    
+  </ul>
 
 
 
@@ -210,8 +228,8 @@
   </h2>
   
     
-      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_function.cr#L9" target="_blank">
-        components/jsc_function.cr
+      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view/select_folder_dialog.cr#L4" target="_blank">
+        components/web_view/select_folder_dialog.cr
       </a>
     
     <br/>
@@ -220,6 +238,25 @@
 
 
 
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new(title:String=&quot;SelectFolder&quot;,webview:WebView?=nil,select_button_title:String=&quot;OK&quot;,cancel_button_title:String=&quot;Cancel&quot;)-class-method" class="signature"><strong>.new</strong>(title : String = <span class="s">&quot;Select Folder&quot;</span>, webview : WebView? = <span class="n">nil</span>, select_button_title : String = <span class="s">&quot;OK&quot;</span>, cancel_button_title : String = <span class="s">&quot;Cancel&quot;</span>)</a>
+        
+          <div class="summary"><p>Initializes a new <code><a href="../WebView/SelectFolderDialog.html">SelectFolderDialog</a></code>, if <em>webview</em> is not <code>nil</code>, the dialog will block <em>webview</em> until it's done.</p></div>
+        
+      </li>
+    
+  </ul>
 
 
 
@@ -231,8 +268,83 @@
 
 <div class="methods-inherited">
   
+    
+
+  <h3>Instance methods inherited from module <code><a href="../WebView/Dialog.html">WebView::Dialog</a></code></h3>
+  
+  
+    <a href="../WebView/Dialog.html#add_file_filter(name:String,pattern:String)-instance-method" class="tooltip">
+      <span>add_file_filter(name : String, pattern : String)<br/>add_file_filter(filter : DialogFileFilter)</span>
+    add_file_filter</a>, 
+    
+  
+    <a href="../WebView/Dialog.html#show-instance-method" class="tooltip">
+      <span>show</span>
+    show</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
 </div>
 
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(title:String=&amp;quot;SelectFolder&amp;quot;,webview:WebView?=nil,select_button_title:String=&amp;quot;OK&amp;quot;,cancel_button_title:String=&amp;quot;Cancel&amp;quot;)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(title : String = <span class="s">&quot;Select Folder&quot;</span>, webview : <a href="../WebView.html">WebView</a>? = <span class="n">nil</span>, select_button_title : String = <span class="s">&quot;OK&quot;</span>, cancel_button_title : String = <span class="s">&quot;Cancel&quot;</span>)
+
+        <a class="method-permalink" href="#new(title:String=&quot;SelectFolder&quot;,webview:WebView?=nil,select_button_title:String=&quot;OK&quot;,cancel_button_title:String=&quot;Cancel&quot;)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Initializes a new <code><a href="../WebView/SelectFolderDialog.html">SelectFolderDialog</a></code>, if <em>webview</em> is not <code>nil</code>, the dialog will block <em>webview</em> until it's done.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view/select_folder_dialog.cr#L8" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 

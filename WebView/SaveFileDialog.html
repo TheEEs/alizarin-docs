@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/TheEEs/alizarin">
-  <title>JSCObject::Accessor(T) - github.com/TheEEs/alizarin</title>
+  <title>WebView::SaveFileDialog - github.com/TheEEs/alizarin</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "../";
   </script>
@@ -70,12 +70,12 @@
       
     </li>
   
-  <li class="parent open current" data-id="github.com/TheEEs/alizarin/JSCObject" data-name="jscobject">
+  <li class="parent " data-id="github.com/TheEEs/alizarin/JSCObject" data-name="jscobject">
       <a href="../JSCObject.html">JSCObject</a>
       
         <ul>
   
-  <li class="parent open current" data-id="github.com/TheEEs/alizarin/JSCObject/Accessor" data-name="jscobject::accessor(t)">
+  <li class="parent " data-id="github.com/TheEEs/alizarin/JSCObject/Accessor" data-name="jscobject::accessor(t)">
       <a href="../JSCObject/Accessor.html">Accessor</a>
       
         <ul>
@@ -120,7 +120,7 @@
       
     </li>
   
-  <li class="parent " data-id="github.com/TheEEs/alizarin/WebView" data-name="webview">
+  <li class="parent open current" data-id="github.com/TheEEs/alizarin/WebView" data-name="webview">
       <a href="../WebView.html">WebView</a>
       
         <ul>
@@ -145,7 +145,7 @@
       
     </li>
   
-  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/SaveFileDialog" data-name="webview::savefiledialog">
+  <li class=" current" data-id="github.com/TheEEs/alizarin/WebView/SaveFileDialog" data-name="webview::savefiledialog">
       <a href="../WebView/SaveFileDialog.html">SaveFileDialog</a>
       
     </li>
@@ -169,12 +169,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> JSCObject::Accessor(T)
+  <span class="kind">class</span> WebView::SaveFileDialog
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../JSCObject/Accessor.html">JSCObject::Accessor(T)</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../WebView/SaveFileDialog.html">WebView::SaveFileDialog</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -188,24 +188,26 @@
     Overview
   </h2>
 
-  <p>An <code><a href="../JSCObject/Accessor.html">Accessor</a></code> represents a JavaScript object's property which is defined via JS <code>Object.defineProperty</code>
-An <code><a href="../JSCObject/Accessor.html">Accessor</a></code> can define its own setter or getter via <code>Accessor#get(&block)</code> and <code>Accessor#set(&block)</code>.
-An <code><a href="../JSCObject/Accessor.html">Accessor</a></code> can have both setter and getter, either, or even none.</p>
-
-<pre><code><span class="k">require</span> <span class="s">&quot;uuid&quot;</span>
-uuid <span class="o">=</span> <span class="t">JSCObject</span>.<span class="k">new</span>
-uuid_get_only_accessor <span class="o">=</span> <span class="t">JSCObject</span><span class="t">::</span><span class="t">Accessor</span>(<span class="t">String</span>).<span class="k">new</span> name: <span class="s">&quot;random&quot;</span>
-uuid.get <span class="k">do</span>
-  <span class="t">UUID</span>.random
-<span class="k">end</span>
-uuid.mount_accessor uuid_get_only_accessor
-<span class="t">JSCContext</span>.set_value <span class="s">&quot;UUID&quot;</span>, uuid</code></pre>
-
-<p>In WebInspector, types <code>UUID.random</code></p>
+  <p><code><a href="../WebView/SaveFileDialog.html">SaveFileDialog</a></code> is used to select a file in file system to which program will write later.
+When it's done, it returns the path of selected file.</p>
 
 
 
 
+
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../WebView/Dialog.html">WebView::Dialog</a></li>
+    
+  </ul>
 
 
 
@@ -226,8 +228,8 @@ uuid.mount_accessor uuid_get_only_accessor
   </h2>
   
     
-      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_object/accessor.cr#L16" target="_blank">
-        components/jsc_object/accessor.cr
+      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view/save_file_dialog.cr#L4" target="_blank">
+        components/web_view/save_file_dialog.cr
       </a>
     
     <br/>
@@ -248,9 +250,9 @@ uuid.mount_accessor uuid_get_only_accessor
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(name:String)-class-method" class="signature"><strong>.new</strong>(name : String)</a>
+        <a href="#new(title:String=&quot;SaveFile&quot;,webview:WebView?=nil,save_button_title:String=&quot;Save&quot;,cancel_button_title:String=&quot;Cancel&quot;)-class-method" class="signature"><strong>.new</strong>(title : String = <span class="s">&quot;Save File&quot;</span>, webview : WebView? = <span class="n">nil</span>, save_button_title : String = <span class="s">&quot;Save&quot;</span>, cancel_button_title : String = <span class="s">&quot;Cancel&quot;</span>)</a>
         
-          <div class="summary"><p>Initializes a new <code><a href="../JSCObject/Accessor.html">Accessor</a></code>, given it <em>name</em>.</p></div>
+          <div class="summary"><p>Initializes a new <code><a href="../WebView/SaveFileDialog.html">SaveFileDialog</a></code>,if <em>webview</em> is not <code>nil</code>, the dialog will block <em>webview</em> until it's done.</p></div>
         
       </li>
     
@@ -271,16 +273,9 @@ uuid.mount_accessor uuid_get_only_accessor
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#get(&block:-%3ET)-instance-method" class="signature"><strong>#get</strong>(&block :  -> T)</a>
+        <a href="#file_name=(name:String)-instance-method" class="signature"><strong>#file_name=</strong>(name : String)</a>
         
-          <div class="summary"><p>Specifies <code><a href="../JSCObject/Accessor.html">Accessor</a></code>'s getter</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#set(&block:Proc(JSCFunction%7CJSCObject%7CJSCPrimative,Nil))-instance-method" class="signature"><strong>#set</strong>(&block : Proc(JSCFunction | JSCObject | JSCPrimative, Nil))</a>
-        
-          <div class="summary"><p>Specifies <code><a href="../JSCObject/Accessor.html">Accessor</a></code>'s setter.</p></div>
+          <div class="summary"><p>Set default file name to save.</p></div>
         
       </li>
     
@@ -291,6 +286,30 @@ uuid.mount_accessor uuid_get_only_accessor
 
 
 <div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="../WebView/Dialog.html">WebView::Dialog</a></code></h3>
+  
+  
+    <a href="../WebView/Dialog.html#add_file_filter(name:String,pattern:String)-instance-method" class="tooltip">
+      <span>add_file_filter(name : String, pattern : String)<br/>add_file_filter(filter : DialogFileFilter)</span>
+    add_file_filter</a>, 
+    
+  
+    <a href="../WebView/Dialog.html#show-instance-method" class="tooltip">
+      <span>show</span>
+    show</a>
+    
+  
+
+
+    
+
+
+    
+
+
   
     
 
@@ -324,23 +343,23 @@ uuid.mount_accessor uuid_get_only_accessor
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(name:String)-class-method">
+    <div class="entry-detail" id="new(title:String=&amp;quot;SaveFile&amp;quot;,webview:WebView?=nil,save_button_title:String=&amp;quot;Save&amp;quot;,cancel_button_title:String=&amp;quot;Cancel&amp;quot;)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(name : String)
+        def self.<strong>new</strong>(title : String = <span class="s">&quot;Save File&quot;</span>, webview : <a href="../WebView.html">WebView</a>? = <span class="n">nil</span>, save_button_title : String = <span class="s">&quot;Save&quot;</span>, cancel_button_title : String = <span class="s">&quot;Cancel&quot;</span>)
 
-        <a class="method-permalink" href="#new(name:String)-class-method">#</a>
+        <a class="method-permalink" href="#new(title:String=&quot;SaveFile&quot;,webview:WebView?=nil,save_button_title:String=&quot;Save&quot;,cancel_button_title:String=&quot;Cancel&quot;)-class-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Initializes a new <code><a href="../JSCObject/Accessor.html">Accessor</a></code>, given it <em>name</em>.</p>
+          <p>Initializes a new <code><a href="../WebView/SaveFileDialog.html">SaveFileDialog</a></code>,if <em>webview</em> is not <code>nil</code>, the dialog will block <em>webview</em> until it's done.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_object/accessor.cr#L32" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view/save_file_dialog.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -359,44 +378,23 @@ uuid.mount_accessor uuid_get_only_accessor
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="get(&amp;block:-&gt;T)-instance-method">
+    <div class="entry-detail" id="file_name=(name:String)-instance-method">
       <div class="signature">
         
-        def <strong>get</strong>(&block :  -> T)
+        def <strong>file_name=</strong>(name : String)
 
-        <a class="method-permalink" href="#get(&block:-%3ET)-instance-method">#</a>
+        <a class="method-permalink" href="#file_name=(name:String)-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Specifies <code><a href="../JSCObject/Accessor.html">Accessor</a></code>'s getter</p>
+          <p>Set default file name to save.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_object/accessor.cr#L41" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="set(&amp;block:Proc(JSCFunction|JSCObject|JSCPrimative,Nil))-instance-method">
-      <div class="signature">
-        
-        def <strong>set</strong>(&block : Proc(<a href="../JSCFunction.html">JSCFunction</a> | <a href="../JSCObject.html">JSCObject</a> | <a href="../JSCPrimative.html">JSCPrimative</a>, Nil))
-
-        <a class="method-permalink" href="#set(&block:Proc(JSCFunction%7CJSCObject%7CJSCPrimative,Nil))-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Specifies <code><a href="../JSCObject/Accessor.html">Accessor</a></code>'s setter.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_object/accessor.cr#L36" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view/save_file_dialog.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>

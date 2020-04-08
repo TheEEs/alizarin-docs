@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/TheEEs/alizarin">
-  <title>JSCObject::Accessor(T) - github.com/TheEEs/alizarin</title>
+  <title>WebExtension::IPC - github.com/TheEEs/alizarin</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "../";
   </script>
@@ -70,12 +70,12 @@
       
     </li>
   
-  <li class="parent open current" data-id="github.com/TheEEs/alizarin/JSCObject" data-name="jscobject">
+  <li class="parent " data-id="github.com/TheEEs/alizarin/JSCObject" data-name="jscobject">
       <a href="../JSCObject.html">JSCObject</a>
       
         <ul>
   
-  <li class="parent open current" data-id="github.com/TheEEs/alizarin/JSCObject/Accessor" data-name="jscobject::accessor(t)">
+  <li class="parent " data-id="github.com/TheEEs/alizarin/JSCObject/Accessor" data-name="jscobject::accessor(t)">
       <a href="../JSCObject/Accessor.html">Accessor</a>
       
         <ul>
@@ -105,12 +105,12 @@
       
     </li>
   
-  <li class="parent " data-id="github.com/TheEEs/alizarin/WebExtension" data-name="webextension">
+  <li class="parent open current" data-id="github.com/TheEEs/alizarin/WebExtension" data-name="webextension">
       <a href="../WebExtension.html">WebExtension</a>
       
         <ul>
   
-  <li class=" " data-id="github.com/TheEEs/alizarin/WebExtension/IPC" data-name="webextension::ipc">
+  <li class=" current" data-id="github.com/TheEEs/alizarin/WebExtension/IPC" data-name="webextension::ipc">
       <a href="../WebExtension/IPC.html">IPC</a>
       
     </li>
@@ -169,12 +169,10 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> JSCObject::Accessor(T)
+  <span class="kind">module</span> WebExtension::IPC
 
 </h1>
 
-
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../JSCObject/Accessor.html">JSCObject::Accessor(T)</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -188,20 +186,46 @@
     Overview
   </h2>
 
-  <p>An <code><a href="../JSCObject/Accessor.html">Accessor</a></code> represents a JavaScript object's property which is defined via JS <code>Object.defineProperty</code>
-An <code><a href="../JSCObject/Accessor.html">Accessor</a></code> can define its own setter or getter via <code>Accessor#get(&block)</code> and <code>Accessor#set(&block)</code>.
-An <code><a href="../JSCObject/Accessor.html">Accessor</a></code> can have both setter and getter, either, or even none.</p>
+  <p>Since <code><a href="../Alizarin.html">Alizarin</a></code> version <strong>2.0.0</strong>, <code><a href="../WebExtension/IPC.html">IPC</a></code> module was added to provide ability to communicate between <code><a href="../WebExtension.html">WebExtension</a></code> and <code><a href="../WebView.html">WebView</a></code>.
+This implmentation uses Unix socket as the primary ipc method since it's cheap, well supported in Crystal.
+It's better to look at a certain situation.
+The following example will create an JavaScript function. When it's called , an instruction will be transferred to Web Process.
+Based on the value of IPC message, <code><a href="../WebView.html">WebView</a></code> can decide what to do next.</p>
 
-<pre><code><span class="k">require</span> <span class="s">&quot;uuid&quot;</span>
-uuid <span class="o">=</span> <span class="t">JSCObject</span>.<span class="k">new</span>
-uuid_get_only_accessor <span class="o">=</span> <span class="t">JSCObject</span><span class="t">::</span><span class="t">Accessor</span>(<span class="t">String</span>).<span class="k">new</span> name: <span class="s">&quot;random&quot;</span>
-uuid.get <span class="k">do</span>
-  <span class="t">UUID</span>.random
+<h4><a id="extension.cr" class="anchor" href="#extension.cr">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>extension.cr</h4>
+
+<pre><code><span class="k">require</span> <span class="s">&quot;alizarin&quot;</span>
+<span class="k">include</span> <span class="t">WebExtension</span>
+initialize_extension <span class="k">do</span>
+  <span class="t">WebExtension</span><span class="t">::</span><span class="t">IPC</span>.init
+  ipc <span class="o">=</span> function p <span class="k">do</span>
+    <span class="t">WebExtension</span><span class="t">::</span><span class="t">IPC</span>.send p.first.to_s
+  <span class="k">end</span>
+  <span class="t">JSCContext</span>.set_value <span class="s">&quot;ipc&quot;</span>, ipc
+<span class="k">end</span></code></pre>
+
+<h4><a id="main.cr" class="anchor" href="#main.cr">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>main.cr</h4>
+
+<pre><code><span class="k">require</span> <span class="s">&quot;alizarin&quot;</span>
+webview <span class="o">=</span> <span class="t">WebView</span>.<span class="k">new</span> ipc: <span class="n">true</span> <span class="c"># makes sure to set `ipc: true` to make WebView run in IPC mode</span>
+webview.when_ipc_message_received <span class="k">do</span> <span class="o">|</span>message<span class="o">|</span>
+  <span class="k">case</span> message
+  <span class="k">when</span> ...
+  <span class="k">when</span> ... <span class="c"># and so on</span>
+  <span class="k">end</span>
 <span class="k">end</span>
-uuid.mount_accessor uuid_get_only_accessor
-<span class="t">JSCContext</span>.set_value <span class="s">&quot;UUID&quot;</span>, uuid</code></pre>
-
-<p>In WebInspector, types <code>UUID.random</code></p>
+webview.load_html <span class="s">&lt;&lt;-HTML
+  &lt;h1&gt;Hello&lt;/h1&gt;
+HTML</span>
+webview.run</code></pre>
 
 
 
@@ -226,8 +250,8 @@ uuid.mount_accessor uuid_get_only_accessor
   </h2>
   
     
-      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_object/accessor.cr#L16" target="_blank">
-        components/jsc_object/accessor.cr
+      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_extension/IPC.cr#L33" target="_blank">
+        components/web_extension/IPC.cr
       </a>
     
     <br/>
@@ -237,54 +261,35 @@ uuid.mount_accessor uuid_get_only_accessor
 
 
 
+
+
   <h2>
-    <a id="constructors" class="anchor" href="#constructors">
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Constructors
+    Class Method Summary
   </h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(name:String)-class-method" class="signature"><strong>.new</strong>(name : String)</a>
+        <a href="#init-class-method" class="signature"><strong>.init</strong></a>
         
-          <div class="summary"><p>Initializes a new <code><a href="../JSCObject/Accessor.html">Accessor</a></code>, given it <em>name</em>.</p></div>
+          <div class="summary"><p>Initializes <code><a href="../WebExtension/IPC.html">IPC</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#send(message)-class-method" class="signature"><strong>.send</strong>(message)</a>
+        
+          <div class="summary"><p>Send <em>message</em> to the <code><a href="../WebView.html">WebView</a></code> which loads this <code><a href="../WebExtension.html">WebExtension</a></code>.</p></div>
         
       </li>
     
   </ul>
 
 
-
-
-
-  <h2>
-    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Summary
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#get(&block:-%3ET)-instance-method" class="signature"><strong>#get</strong>(&block :  -> T)</a>
-        
-          <div class="summary"><p>Specifies <code><a href="../JSCObject/Accessor.html">Accessor</a></code>'s getter</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#set(&block:Proc(JSCFunction%7CJSCObject%7CJSCPrimative,Nil))-instance-method" class="signature"><strong>#set</strong>(&block : Proc(JSCFunction | JSCObject | JSCPrimative, Nil))</a>
-        
-          <div class="summary"><p>Specifies <code><a href="../JSCObject/Accessor.html">Accessor</a></code>'s setter.</p></div>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -292,115 +297,64 @@ uuid.mount_accessor uuid_get_only_accessor
 
 <div class="methods-inherited">
   
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
 </div>
 
 
+
+
   <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Constructor Detail
+    Class Method Detail
   </h2>
   
-    <div class="entry-detail" id="new(name:String)-class-method">
+    <div class="entry-detail" id="init-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(name : String)
+        def self.<strong>init</strong>
 
-        <a class="method-permalink" href="#new(name:String)-class-method">#</a>
+        <a class="method-permalink" href="#init-class-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Initializes a new <code><a href="../JSCObject/Accessor.html">Accessor</a></code>, given it <em>name</em>.</p>
+          <p>Initializes <code><a href="../WebExtension/IPC.html">IPC</a></code>. This method must be called before any call to <code><a href="../WebExtension/IPC.html#send(message)-class-method">#send</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_object/accessor.cr#L32" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_extension/IPC.cr#L42" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="send(message)-class-method">
+      <div class="signature">
+        
+        def self.<strong>send</strong>(message)
+
+        <a class="method-permalink" href="#send(message)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Send <em>message</em> to the <code><a href="../WebView.html">WebView</a></code> which loads this <code><a href="../WebExtension.html">WebExtension</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_extension/IPC.cr#L47" target="_blank">View source</a>]
         
       </div>
     </div>
   
 
 
-
-
-
-  <h2>
-    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Detail
-  </h2>
-  
-    <div class="entry-detail" id="get(&amp;block:-&gt;T)-instance-method">
-      <div class="signature">
-        
-        def <strong>get</strong>(&block :  -> T)
-
-        <a class="method-permalink" href="#get(&block:-%3ET)-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Specifies <code><a href="../JSCObject/Accessor.html">Accessor</a></code>'s getter</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_object/accessor.cr#L41" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="set(&amp;block:Proc(JSCFunction|JSCObject|JSCPrimative,Nil))-instance-method">
-      <div class="signature">
-        
-        def <strong>set</strong>(&block : Proc(<a href="../JSCFunction.html">JSCFunction</a> | <a href="../JSCObject.html">JSCObject</a> | <a href="../JSCPrimative.html">JSCPrimative</a>, Nil))
-
-        <a class="method-permalink" href="#set(&block:Proc(JSCFunction%7CJSCObject%7CJSCPrimative,Nil))-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Specifies <code><a href="../JSCObject/Accessor.html">Accessor</a></code>'s setter.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_object/accessor.cr#L36" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
 
 
 

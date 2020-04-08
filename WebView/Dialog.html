@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/TheEEs/alizarin">
-  <title>JSCObject::Accessor(T) - github.com/TheEEs/alizarin</title>
+  <title>WebView::Dialog - github.com/TheEEs/alizarin</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "../";
   </script>
@@ -70,12 +70,12 @@
       
     </li>
   
-  <li class="parent open current" data-id="github.com/TheEEs/alizarin/JSCObject" data-name="jscobject">
+  <li class="parent " data-id="github.com/TheEEs/alizarin/JSCObject" data-name="jscobject">
       <a href="../JSCObject.html">JSCObject</a>
       
         <ul>
   
-  <li class="parent open current" data-id="github.com/TheEEs/alizarin/JSCObject/Accessor" data-name="jscobject::accessor(t)">
+  <li class="parent " data-id="github.com/TheEEs/alizarin/JSCObject/Accessor" data-name="jscobject::accessor(t)">
       <a href="../JSCObject/Accessor.html">Accessor</a>
       
         <ul>
@@ -120,7 +120,7 @@
       
     </li>
   
-  <li class="parent " data-id="github.com/TheEEs/alizarin/WebView" data-name="webview">
+  <li class="parent open current" data-id="github.com/TheEEs/alizarin/WebView" data-name="webview">
       <a href="../WebView.html">WebView</a>
       
         <ul>
@@ -130,7 +130,7 @@
       
     </li>
   
-  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/Dialog" data-name="webview::dialog">
+  <li class=" current" data-id="github.com/TheEEs/alizarin/WebView/Dialog" data-name="webview::dialog">
       <a href="../WebView/Dialog.html">Dialog</a>
       
     </li>
@@ -169,12 +169,10 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> JSCObject::Accessor(T)
+  <span class="kind">module</span> WebView::Dialog
 
 </h1>
 
-
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../JSCObject/Accessor.html">JSCObject::Accessor(T)</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -188,20 +186,10 @@
     Overview
   </h2>
 
-  <p>An <code><a href="../JSCObject/Accessor.html">Accessor</a></code> represents a JavaScript object's property which is defined via JS <code>Object.defineProperty</code>
-An <code><a href="../JSCObject/Accessor.html">Accessor</a></code> can define its own setter or getter via <code>Accessor#get(&block)</code> and <code>Accessor#set(&block)</code>.
-An <code><a href="../JSCObject/Accessor.html">Accessor</a></code> can have both setter and getter, either, or even none.</p>
+  <p><code><a href="../WebView/Dialog.html">Dialog</a></code> is the base module for three avaiable kinds of dialog in Alizarin.
+They includes:</p>
 
-<pre><code><span class="k">require</span> <span class="s">&quot;uuid&quot;</span>
-uuid <span class="o">=</span> <span class="t">JSCObject</span>.<span class="k">new</span>
-uuid_get_only_accessor <span class="o">=</span> <span class="t">JSCObject</span><span class="t">::</span><span class="t">Accessor</span>(<span class="t">String</span>).<span class="k">new</span> name: <span class="s">&quot;random&quot;</span>
-uuid.get <span class="k">do</span>
-  <span class="t">UUID</span>.random
-<span class="k">end</span>
-uuid.mount_accessor uuid_get_only_accessor
-<span class="t">JSCContext</span>.set_value <span class="s">&quot;UUID&quot;</span>, uuid</code></pre>
-
-<p>In WebInspector, types <code>UUID.random</code></p>
+<ol><li><code><a href="../WebView/OpenFileDialog.html">WebView::OpenFileDialog</a></code></li><li><code><a href="../WebView/SaveFileDialog.html">WebView::SaveFileDialog</a></code></li><li><code><a href="../WebView/SelectFolderDialog.html">WebView::SelectFolderDialog</a></code></li></ol>
 
 
 
@@ -212,6 +200,24 @@ uuid.mount_accessor uuid_get_only_accessor
 
 
 
+
+  <h2>
+    <a id="direct-including-types" class="anchor" href="#direct-including-types">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct including types
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../WebView/OpenFileDialog.html">WebView::OpenFileDialog</a></li>
+    
+      <li class="other-type"><a href="../WebView/SaveFileDialog.html">WebView::SaveFileDialog</a></li>
+    
+      <li class="other-type"><a href="../WebView/SelectFolderDialog.html">WebView::SelectFolderDialog</a></li>
+    
+  </ul>
 
 
 
@@ -226,8 +232,8 @@ uuid.mount_accessor uuid_get_only_accessor
   </h2>
   
     
-      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_object/accessor.cr#L16" target="_blank">
-        components/jsc_object/accessor.cr
+      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view/dialog.cr#L7" target="_blank">
+        components/web_view/dialog.cr
       </a>
     
     <br/>
@@ -236,25 +242,6 @@ uuid.mount_accessor uuid_get_only_accessor
 
 
 
-
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#new(name:String)-class-method" class="signature"><strong>.new</strong>(name : String)</a>
-        
-          <div class="summary"><p>Initializes a new <code><a href="../JSCObject/Accessor.html">Accessor</a></code>, given it <em>name</em>.</p></div>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -271,16 +258,23 @@ uuid.mount_accessor uuid_get_only_accessor
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#get(&block:-%3ET)-instance-method" class="signature"><strong>#get</strong>(&block :  -> T)</a>
+        <a href="#add_file_filter(name:String,pattern:String)-instance-method" class="signature"><strong>#add_file_filter</strong>(name : String, pattern : String)</a>
         
-          <div class="summary"><p>Specifies <code><a href="../JSCObject/Accessor.html">Accessor</a></code>'s getter</p></div>
+          <div class="summary"><p>Implicitly adds an <code><a href="../WebView/DialogFileFilter.html">WebView::DialogFileFilter</a></code> to the dialog, given its <em>name</em> and <em>pattern</em>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#set(&block:Proc(JSCFunction%7CJSCObject%7CJSCPrimative,Nil))-instance-method" class="signature"><strong>#set</strong>(&block : Proc(JSCFunction | JSCObject | JSCPrimative, Nil))</a>
+        <a href="#add_file_filter(filter:DialogFileFilter)-instance-method" class="signature"><strong>#add_file_filter</strong>(filter : DialogFileFilter)</a>
         
-          <div class="summary"><p>Specifies <code><a href="../JSCObject/Accessor.html">Accessor</a></code>'s setter.</p></div>
+          <div class="summary"><p>Adds an <code><a href="../WebView/DialogFileFilter.html">WebView::DialogFileFilter</a></code> to the dialog.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#show-instance-method" class="signature"><strong>#show</strong></a>
+        
+          <div class="summary"><p>Shows the dialog then return corresponding value, in : file path, ..etc...</p></div>
         
       </li>
     
@@ -292,59 +286,8 @@ uuid.mount_accessor uuid_get_only_accessor
 
 <div class="methods-inherited">
   
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
 </div>
 
-
-  <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructor Detail
-  </h2>
-  
-    <div class="entry-detail" id="new(name:String)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(name : String)
-
-        <a class="method-permalink" href="#new(name:String)-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Initializes a new <code><a href="../JSCObject/Accessor.html">Accessor</a></code>, given it <em>name</em>.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_object/accessor.cr#L32" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
 
 
 
@@ -359,44 +302,67 @@ uuid.mount_accessor uuid_get_only_accessor
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="get(&amp;block:-&gt;T)-instance-method">
+    <div class="entry-detail" id="add_file_filter(name:String,pattern:String)-instance-method">
       <div class="signature">
         
-        def <strong>get</strong>(&block :  -> T)
+        def <strong>add_file_filter</strong>(name : String, pattern : String)
 
-        <a class="method-permalink" href="#get(&block:-%3ET)-instance-method">#</a>
+        <a class="method-permalink" href="#add_file_filter(name:String,pattern:String)-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Specifies <code><a href="../JSCObject/Accessor.html">Accessor</a></code>'s getter</p>
+          <p>Implicitly adds an <code><a href="../WebView/DialogFileFilter.html">WebView::DialogFileFilter</a></code> to the dialog, given its <em>name</em> and <em>pattern</em>.</p>
+
+<pre><code>my_dialog.add_file_filter(<span class="s">&quot;Crystal&quot;</span>, <span class="s">&quot;*.cr&quot;</span>)</code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_object/accessor.cr#L41" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view/dialog.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="set(&amp;block:Proc(JSCFunction|JSCObject|JSCPrimative,Nil))-instance-method">
+    <div class="entry-detail" id="add_file_filter(filter:DialogFileFilter)-instance-method">
       <div class="signature">
         
-        def <strong>set</strong>(&block : Proc(<a href="../JSCFunction.html">JSCFunction</a> | <a href="../JSCObject.html">JSCObject</a> | <a href="../JSCPrimative.html">JSCPrimative</a>, Nil))
+        def <strong>add_file_filter</strong>(filter : <a href="../WebView/DialogFileFilter.html">DialogFileFilter</a>)
 
-        <a class="method-permalink" href="#set(&block:Proc(JSCFunction%7CJSCObject%7CJSCPrimative,Nil))-instance-method">#</a>
+        <a class="method-permalink" href="#add_file_filter(filter:DialogFileFilter)-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Specifies <code><a href="../JSCObject/Accessor.html">Accessor</a></code>'s setter.</p>
+          <p>Adds an <code><a href="../WebView/DialogFileFilter.html">WebView::DialogFileFilter</a></code> to the dialog.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/jsc_object/accessor.cr#L36" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view/dialog.cr#L9" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="show-instance-method">
+      <div class="signature">
+        
+        def <strong>show</strong>
+
+        <a class="method-permalink" href="#show-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Shows the dialog then return corresponding value, in : file path, ..etc...</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view/dialog.cr#L26" target="_blank">View source</a>]
         
       </div>
     </div>

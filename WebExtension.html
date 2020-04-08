@@ -45,6 +45,11 @@
       
     </li>
   
+  <li class=" " data-id="github.com/TheEEs/alizarin/Invokable" data-name="invokable">
+      <a href="Invokable.html">Invokable</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/TheEEs/alizarin/JSCContext" data-name="jsccontext">
       <a href="JSCContext.html">JSCContext</a>
       
@@ -100,8 +105,18 @@
       
     </li>
   
-  <li class=" current" data-id="github.com/TheEEs/alizarin/WebExtension" data-name="webextension">
+  <li class="parent open current" data-id="github.com/TheEEs/alizarin/WebExtension" data-name="webextension">
       <a href="WebExtension.html">WebExtension</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebExtension/IPC" data-name="webextension::ipc">
+      <a href="WebExtension/IPC.html">IPC</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -112,6 +127,31 @@
   
   <li class=" " data-id="github.com/TheEEs/alizarin/WebView/Callback" data-name="webview::callback">
       <a href="WebView/Callback.html">Callback</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/Dialog" data-name="webview::dialog">
+      <a href="WebView/Dialog.html">Dialog</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/DialogFileFilter" data-name="webview::dialogfilefilter">
+      <a href="WebView/DialogFileFilter.html">DialogFileFilter</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/OpenFileDialog" data-name="webview::openfiledialog">
+      <a href="WebView/OpenFileDialog.html">OpenFileDialog</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/SaveFileDialog" data-name="webview::savefiledialog">
+      <a href="WebView/SaveFileDialog.html">SaveFileDialog</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/SelectFolderDialog" data-name="webview::selectfolderdialog">
+      <a href="WebView/SelectFolderDialog.html">SelectFolderDialog</a>
       
     </li>
   
@@ -206,8 +246,8 @@ initialize_extension <span class="k">do</span>
   </h2>
   
     
-      <a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_extension.cr#L40" target="_blank">
-        web_extension.cr
+      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_extension.cr#L40" target="_blank">
+        components/web_extension.cr
       </a>
     
     <br/>
@@ -230,9 +270,16 @@ initialize_extension <span class="k">do</span>
   <ul class="list-summary">
     
       <li class="entry-summary">
+        <a href="#eval(js:String)-class-method" class="signature"><strong>.eval</strong>(js : String)</a>
+        
+          <div class="summary"><p>Evaluates <em>js</em> and gets the result back.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#uuid-class-method" class="signature"><strong>.uuid</strong></a>
         
-          <div class="summary"><p>Gets UUID hex string of the <code><a href="WebView.html">WebView</a></code> which loads this extension </p></div>
+          <div class="summary"><p>Gets UUID hex string of the <code><a href="WebView.html">WebView</a></code> which loads this extension</p></div>
         
       </li>
     
@@ -300,6 +347,27 @@ initialize_extension <span class="k">do</span>
     Class Method Detail
   </h2>
   
+    <div class="entry-detail" id="eval(js:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>eval</strong>(js : String)
+
+        <a class="method-permalink" href="#eval(js:String)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Evaluates <em>js</em> and gets the result back.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_extension.cr#L139" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="uuid-class-method">
       <div class="signature">
         
@@ -310,13 +378,13 @@ initialize_extension <span class="k">do</span>
       
         <div class="doc">
           
-          <p>Gets UUID hex string of the <code><a href="WebView.html">WebView</a></code> which loads this extension </p>
+          <p>Gets UUID hex string of the <code><a href="WebView.html">WebView</a></code> which loads this extension</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_extension.cr#L49" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_extension.cr#L49" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -362,7 +430,7 @@ initialize_extension <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_extension.cr#L93" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_extension.cr#L93" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -383,7 +451,7 @@ initialize_extension <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_extension.cr#L54" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_extension.cr#L54" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -414,7 +482,7 @@ promise <span class="o">=</span> <span class="t">JSCContext</span>.get_value(<sp
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_extension.cr#L134" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_extension.cr#L134" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -435,7 +503,7 @@ promise <span class="o">=</span> <span class="t">JSCContext</span>.get_value(<sp
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_extension.cr#L100" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_extension.cr#L100" target="_blank">View source</a>]
         
       </div>
     </div>

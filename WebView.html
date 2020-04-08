@@ -45,6 +45,11 @@
       
     </li>
   
+  <li class=" " data-id="github.com/TheEEs/alizarin/Invokable" data-name="invokable">
+      <a href="Invokable.html">Invokable</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/TheEEs/alizarin/JSCContext" data-name="jsccontext">
       <a href="JSCContext.html">JSCContext</a>
       
@@ -100,8 +105,18 @@
       
     </li>
   
-  <li class=" " data-id="github.com/TheEEs/alizarin/WebExtension" data-name="webextension">
+  <li class="parent " data-id="github.com/TheEEs/alizarin/WebExtension" data-name="webextension">
       <a href="WebExtension.html">WebExtension</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebExtension/IPC" data-name="webextension::ipc">
+      <a href="WebExtension/IPC.html">IPC</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -112,6 +127,31 @@
   
   <li class=" " data-id="github.com/TheEEs/alizarin/WebView/Callback" data-name="webview::callback">
       <a href="WebView/Callback.html">Callback</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/Dialog" data-name="webview::dialog">
+      <a href="WebView/Dialog.html">Dialog</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/DialogFileFilter" data-name="webview::dialogfilefilter">
+      <a href="WebView/DialogFileFilter.html">DialogFileFilter</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/OpenFileDialog" data-name="webview::openfiledialog">
+      <a href="WebView/OpenFileDialog.html">OpenFileDialog</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/SaveFileDialog" data-name="webview::savefiledialog">
+      <a href="WebView/SaveFileDialog.html">SaveFileDialog</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheEEs/alizarin/WebView/SelectFolderDialog" data-name="webview::selectfolderdialog">
+      <a href="WebView/SelectFolderDialog.html">SelectFolderDialog</a>
       
     </li>
   
@@ -174,8 +214,43 @@ It allows developers to display HTML contents, execute JavaScript code.</p>
   </h2>
   
     
-      <a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L6" target="_blank">
-        web_view.cr
+      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L5" target="_blank">
+        components/web_view.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view/dialog.cr#L1" target="_blank">
+        components/web_view/dialog.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view/dialog_file_filter.cr#L1" target="_blank">
+        components/web_view/dialog_file_filter.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view/open_file_dialog.cr#L1" target="_blank">
+        components/web_view/open_file_dialog.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view/save_file_dialog.cr#L1" target="_blank">
+        components/web_view/save_file_dialog.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view/select_folder_dialog.cr#L1" target="_blank">
+        components/web_view/select_folder_dialog.cr
       </a>
     
     <br/>
@@ -196,9 +271,9 @@ It allows developers to display HTML contents, execute JavaScript code.</p>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
+        <a href="#new(ipc:Bool=false)-class-method" class="signature"><strong>.new</strong>(ipc : Bool = <span class="n">false</span>)</a>
         
-          <div class="summary"><p>Initializes a new instance of <code><a href="WebView.html">WebView</a></code></p></div>
+          <div class="summary"><p>Initializes a new instance of <code><a href="WebView.html">WebView</a></code>, whether this <code><a href="WebView.html">WebView</a></code> should use <em>ipc</em> mode or not.</p></div>
         
       </li>
     
@@ -275,6 +350,13 @@ It allows developers to display HTML contents, execute JavaScript code.</p>
       </li>
     
       <li class="entry-summary">
+        <a href="#ipc?:Bool-instance-method" class="signature"><strong>#ipc?</strong> : Bool</a>
+        
+          <div class="summary"><p>Specifies whether if <code><a href="WebView.html">WebView</a></code> is running on IPC mode or not.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#load_html(html:String,base_url:String?=nil)-instance-method" class="signature"><strong>#load_html</strong>(html : String, base_url : String? = <span class="n">nil</span>)</a>
         
           <div class="summary"><p>Loads raw <em>html</em></p></div>
@@ -338,6 +420,13 @@ It allows developers to display HTML contents, execute JavaScript code.</p>
       </li>
     
       <li class="entry-summary">
+        <a href="#stop_ipc-instance-method" class="signature"><strong>#stop_ipc</strong></a>
+        
+          <div class="summary"><p>Stops ipc listening on the <code><a href="WebView.html">WebView</a></code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#title=(title:String)-instance-method" class="signature"><strong>#title=</strong>(title : String)</a>
         
           <div class="summary"><p>Set title of browser window</p></div>
@@ -355,6 +444,13 @@ It allows developers to display HTML contents, execute JavaScript code.</p>
         <a href="#when_document_loaded(&b:WebView-%3ENil)-instance-method" class="signature"><strong>#when_document_loaded</strong>(&b : WebView -> Nil)</a>
         
           <div class="summary"><p>Specifies a callback which will be called after webview has fully loaded a webpage.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#when_ipc_message_received(&block:String-%3ENil)-instance-method" class="signature"><strong>#when_ipc_message_received</strong>(&block : String -> Nil)</a>
+        
+          <div class="summary"><p>Specifies a callback which will be called eachtime a IPC message is send from Render Process (e.g : via JavaScript)</p></div>
         
       </li>
     
@@ -412,23 +508,23 @@ It allows developers to display HTML contents, execute JavaScript code.</p>
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new-class-method">
+    <div class="entry-detail" id="new(ipc:Bool=false)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>
+        def self.<strong>new</strong>(ipc : Bool = <span class="n">false</span>)
 
-        <a class="method-permalink" href="#new-class-method">#</a>
+        <a class="method-permalink" href="#new(ipc:Bool=false)-class-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Initializes a new instance of <code><a href="WebView.html">WebView</a></code></p>
+          <p>Initializes a new instance of <code><a href="WebView.html">WebView</a></code>, whether this <code><a href="WebView.html">WebView</a></code> should use <em>ipc</em> mode or not.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L20" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L29" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -466,7 +562,7 @@ webview[<span class="s">&quot;enable-html5-local-storage&quot;</span>] <span cla
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L75" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L85" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -497,7 +593,7 @@ webview[<span class="s">&quot;enable-html5-local-storage&quot;</span>] <span cla
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L192" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L250" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -522,7 +618,7 @@ webview[<span class="s">&quot;enable-html5-local-storage&quot;</span>] <span cla
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L167" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L225" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -543,7 +639,7 @@ webview[<span class="s">&quot;enable-html5-local-storage&quot;</span>] <span cla
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L14" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L20" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -563,13 +659,13 @@ webview[<span class="s">&quot;enable-html5-local-storage&quot;</span>] <span cla
 <pre><code>webview <span class="o">=</span> <span class="t">WebView</span>.<span class="k">new</span>
 webview.extension_dir <span class="o">=</span> <span class="s">&quot;&lt;your-path-to-directory-which-contains-web-extensions&gt;&quot;</span></code></pre>
 
-<p><span class="flag purple">NOTE</span>  If this method is used, it should be executed as soon as possible. A good practice is to place it right after <code><a href="WebView.html#new-class-method">.new</a></code>.</p>
+<p><span class="flag purple">NOTE</span>  If this method is used, it should be executed as soon as possible. A good practice is to place it right after <code><a href="WebView.html#new(ipc:Bool=false)-class-method">.new</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L47" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -590,7 +686,7 @@ webview.extension_dir <span class="o">=</span> <span class="s">&quot;&lt;your-pa
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L152" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L210" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -611,7 +707,7 @@ webview.extension_dir <span class="o">=</span> <span class="s">&quot;&lt;your-pa
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L208" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L266" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -632,7 +728,28 @@ webview.extension_dir <span class="o">=</span> <span class="s">&quot;&lt;your-pa
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L213" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L271" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ipc?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>ipc?</strong> : Bool
+
+        <a class="method-permalink" href="#ipc?:Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Specifies whether if <code><a href="WebView.html">WebView</a></code> is running on IPC mode or not.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L26" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -656,7 +773,7 @@ All absolute paths will also have to start with <em>base_url</em> because of sec
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L92" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L102" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -679,7 +796,7 @@ All absolute paths will also have to start with <em>base_url</em> because of sec
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L84" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L94" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -705,7 +822,7 @@ All absolute paths will also have to start with <em>base_url</em> because of sec
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L104" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L114" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -733,7 +850,7 @@ All absolute paths will also have to start with <em>base_url</em> because of sec
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L236" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L294" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -754,7 +871,7 @@ All absolute paths will also have to start with <em>base_url</em> because of sec
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L218" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L276" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -775,7 +892,7 @@ All absolute paths will also have to start with <em>base_url</em> because of sec
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L223" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L281" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -800,12 +917,15 @@ webview.run blocking: <span class="n">false</span> <span class="k">do</span> <sp
   puts a
   a += <span class="n">1</span>
 <span class="k">end</span></code></pre>
+
+<p><span class="flag purple">NOTE</span>  <strong>IMPORTANT</strong> : Uses this method carefully when <code><a href="WebView.html">WebView</a></code> is running on IPC mode.
+Some concurrent operations such as <code>Channel#receive</code> may cause the <code><a href="WebView.html">WebView</a></code> blocked infinitely.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L144" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L184" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -829,7 +949,7 @@ puts <span class="s">&quot;Good bye&quot;</span> <span class="c"># This line wil
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L127" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L148" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -850,7 +970,28 @@ puts <span class="s">&quot;Good bye&quot;</span> <span class="c"># This line wil
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L116" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L137" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="stop_ipc-instance-method">
+      <div class="signature">
+        
+        def <strong>stop_ipc</strong>
+
+        <a class="method-permalink" href="#stop_ipc-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Stops ipc listening on the <code><a href="WebView.html">WebView</a></code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L132" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -873,7 +1014,7 @@ puts <span class="s">&quot;Good bye&quot;</span> <span class="c"># This line wil
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L65" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L75" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -894,7 +1035,7 @@ puts <span class="s">&quot;Good bye&quot;</span> <span class="c"># This line wil
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L23" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -921,7 +1062,28 @@ This method is the right place to do some logic, for example <code><a href="WebV
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L274" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L332" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="when_ipc_message_received(&amp;block:String-&gt;Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>when_ipc_message_received</strong>(&block : String -> Nil)
+
+        <a class="method-permalink" href="#when_ipc_message_received(&block:String-%3ENil)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Specifies a callback which will be called eachtime a IPC message is send from Render Process (e.g : via JavaScript)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L166" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -953,7 +1115,7 @@ using JavaScriptCore API. Uses <code><a href="WebExtension.html">WebExtension</a
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L261" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L319" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -976,7 +1138,7 @@ using JavaScriptCore API. Uses <code><a href="WebExtension.html">WebExtension</a
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/a8186530eb66422564ef8f2e39451370d753dbbe/src/web_view.cr#L56" target="_blank">View source</a>]
+          [<a href="https://github.com/TheEEs/alizarin/blob/1c2d392663f13097230c3584b618c2789cf4dcc5/src/components/web_view.cr#L66" target="_blank">View source</a>]
         
       </div>
     </div>
