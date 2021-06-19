@@ -13,7 +13,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="alizarin">
-  <title>WebView::OpenFileDialog - alizarin master</title>
+  <title>WebExtension::JSCInstanceMethod - alizarin master</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -116,7 +116,7 @@
       
     </li>
   
-  <li class="parent " data-id="alizarin/WebExtension" data-name="webextension">
+  <li class="parent open current" data-id="alizarin/WebExtension" data-name="webextension">
       <a href="../WebExtension.html">WebExtension</a>
       
         <ul>
@@ -131,7 +131,7 @@
       
     </li>
   
-  <li class=" " data-id="alizarin/WebExtension/JSCInstanceMethod" data-name="webextension::jscinstancemethod">
+  <li class=" current" data-id="alizarin/WebExtension/JSCInstanceMethod" data-name="webextension::jscinstancemethod">
       <a href="../WebExtension/JSCInstanceMethod.html">JSCInstanceMethod</a>
       
     </li>
@@ -141,7 +141,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="alizarin/WebView" data-name="webview">
+  <li class="parent " data-id="alizarin/WebView" data-name="webview">
       <a href="../WebView.html">WebView</a>
       
         <ul>
@@ -161,7 +161,7 @@
       
     </li>
   
-  <li class=" current" data-id="alizarin/WebView/OpenFileDialog" data-name="webview::openfiledialog">
+  <li class=" " data-id="alizarin/WebView/OpenFileDialog" data-name="webview::openfiledialog">
       <a href="../WebView/OpenFileDialog.html">OpenFileDialog</a>
       
     </li>
@@ -190,12 +190,10 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> WebView::OpenFileDialog
+  <span class="kind">annotation</span> WebExtension::JSCInstanceMethod
 
 </h1>
 
-
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../WebView/OpenFileDialog.html">WebView::OpenFileDialog</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -209,26 +207,40 @@
     Overview
   </h2>
 
-  <p><code><a href="../WebView/OpenFileDialog.html">OpenFileDialog</a></code> is used to select a file in file system.
-When it's done, it returns the path of selected file.</p>
+  <p>Alizarin allows us to create custom JavaScript classes using plain Crystal classes.
+All we need to do is to register our classes using <code><a href="../WebExtension.html#register_class(type)-macro">WebExtension.register_class</a></code> macro.
+Note that if we need to expose any method of our Crystal's class so we can call it in JavaScript later, we <strong>must</strong> annotate it with this annotation, <code><a href="../WebExtension/JSCInstanceMethod.html">JSCInstanceMethod</a></code>.</p>
+
+<p>The example bellow demonstrates how to create a custom JavaScript class which allow us to read content of given file on disk.</p>
+
+<ul><li>extension.cr</li></ul>
+
+<pre><code class="language-crystal">require 'alizarin'
+include WebExtension
+class File #here we do not have to construct a new class from scratch, just extend existing one.
+  def initialize(params : [] of JSCObject | JSCFunction | JSCPrimative)
+      super(params.first.to_s)
+  end
+
+  @[JSCInstanceMethod]
+  def content(p)
+    self.seek(0)
+    self.gets_to_end
+  end
+end
+
+initialize_extension do
+    JSCContext.set_value "File", register_class(File)
+end</code></pre>
+
+<ul><li>index.js</li></ul>
+
+<pre><code class="language-javascript">var file_content = new File("./LICENSE").content();
+console.log(file_content);</code></pre>
 
 
 
 
-
-  <h2>
-    <a id="included-modules" class="anchor" href="#included-modules">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Included Modules
-  </h2>
-  <ul class="other-types-list">
-    
-      <li class="other-type"><a href="../WebView/Dialog.html">WebView::Dialog</a></li>
-    
-  </ul>
 
 
 
@@ -249,8 +261,8 @@ When it's done, it returns the path of selected file.</p>
   </h2>
   
     
-      <a href="https://github.com/TheEEs/alizarin/blob/be6789ee8d9e51680feb3a679d2b1ac4a9cdc5a1/src/components/web_view/open_file_dialog.cr#L4" target="_blank">
-        components/web_view/open_file_dialog.cr
+      <a href="https://github.com/TheEEs/alizarin/blob/be6789ee8d9e51680feb3a679d2b1ac4a9cdc5a1/src/components/web_extension/annotations.cr#L32" target="_blank">
+        components/web_extension/annotations.cr
       </a>
     
     <br/>
@@ -259,25 +271,6 @@ When it's done, it returns the path of selected file.</p>
 
 
 
-
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#new(title:String=&quot;OpenFile&quot;,webview:WebView?=nil,open_button_title:String=&quot;Open&quot;,cancel_button_title:String=&quot;Cancel&quot;)-class-method" class="signature"><strong>.new</strong>(title : String = <span class="s">&quot;Open File&quot;</span>, webview : WebView? = <span class="n">nil</span>, open_button_title : String = <span class="s">&quot;Open&quot;</span>, cancel_button_title : String = <span class="s">&quot;Cancel&quot;</span>)</a>
-        
-          <div class="summary"><p>Initializes a new <code><a href="../WebView/OpenFileDialog.html">OpenFileDialog</a></code>, if <em>webview</em> is not <code>nil</code>, the dialog will block <em>webview</em> until it's done.</p></div>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -289,83 +282,8 @@ When it's done, it returns the path of selected file.</p>
 
 <div class="methods-inherited">
   
-    
-
-  <h3>Instance methods inherited from module <code><a href="../WebView/Dialog.html">WebView::Dialog</a></code></h3>
-  
-  
-    <a href="../WebView/Dialog.html#add_file_filter(name:String,pattern:String)-instance-method" class="tooltip">
-      <span>add_file_filter(name : String, pattern : String)<br/>add_file_filter(filter : DialogFileFilter)</span>
-    add_file_filter</a>, 
-    
-  
-    <a href="../WebView/Dialog.html#show-instance-method" class="tooltip">
-      <span>show</span>
-    show</a>
-    
-  
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
 </div>
 
-
-  <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructor Detail
-  </h2>
-  
-    <div class="entry-detail" id="new(title:String=&quot;OpenFile&quot;,webview:WebView?=nil,open_button_title:String=&quot;Open&quot;,cancel_button_title:String=&quot;Cancel&quot;)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(title : String = <span class="s">&quot;Open File&quot;</span>, webview : <a href="../WebView.html">WebView</a>? = <span class="n">nil</span>, open_button_title : String = <span class="s">&quot;Open&quot;</span>, cancel_button_title : String = <span class="s">&quot;Cancel&quot;</span>)
-
-        <a class="method-permalink" href="#new(title:String=&quot;OpenFile&quot;,webview:WebView?=nil,open_button_title:String=&quot;Open&quot;,cancel_button_title:String=&quot;Cancel&quot;)-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Initializes a new <code><a href="../WebView/OpenFileDialog.html">OpenFileDialog</a></code>, if <em>webview</em> is not <code>nil</code>, the dialog will block <em>webview</em> until it's done.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/TheEEs/alizarin/blob/be6789ee8d9e51680feb3a679d2b1ac4a9cdc5a1/src/components/web_view/open_file_dialog.cr#L8" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
 
 
 

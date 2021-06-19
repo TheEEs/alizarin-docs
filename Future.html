@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Crystal Docs 0.36.1">
-<meta name="crystal_docs.project_version" content="master">
+<meta name="crystal_docs.project_version" content="master-dev">
 <meta name="crystal_docs.project_name" content="alizarin">
 
 
@@ -13,7 +13,7 @@
 <script type="text/javascript" src="js/doc.js"></script>
 
   <meta name="repository-name" content="alizarin">
-  <title>JSCObject - alizarin master</title>
+  <title>Future - alizarin master-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "";
   </script>
@@ -39,7 +39,7 @@
       </h1>
 
       <span class="project-version">
-        master
+        master-dev
       </span>
     </div>
   </div>
@@ -56,8 +56,18 @@
       
     </li>
   
+  <li class=" current" data-id="alizarin/Future" data-name="future">
+      <a href="Future.html">Future</a>
+      
+    </li>
+  
   <li class=" " data-id="alizarin/Invokable" data-name="invokable">
       <a href="Invokable.html">Invokable</a>
+      
+    </li>
+  
+  <li class=" " data-id="alizarin/JSCClass" data-name="jscclass">
+      <a href="JSCClass.html">JSCClass</a>
       
     </li>
   
@@ -81,7 +91,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="alizarin/JSCObject" data-name="jscobject">
+  <li class="parent " data-id="alizarin/JSCObject" data-name="jscobject">
       <a href="JSCObject.html">JSCObject</a>
       
         <ul>
@@ -190,12 +200,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> JSCObject
+  <span class="kind">class</span> Future
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="JSCObject.html">JSCObject</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Future.html">Future</a></li><li class="superclass"><a href="JSCObject.html">JSCObject</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -209,7 +219,39 @@
     Overview
   </h2>
 
-  <p>A JSCObject represent a JavaScript object</p>
+  <p><code><a href="Future.html">Future</a></code> is a Promise-like native extension. It provides another option to developers by which
+they can organize their asynchronous code better without worring about callback hells or writing to much
+Crystal code to handle async tasks in JS.</p>
+
+<p>We can use it directly in Crystal ...</p>
+
+<ol><li>extension.cr</li></ol>
+
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;alizarin&quot;</span>
+<span class="k">include</span> <span class="t">WebExtension</span>
+initialize_extension <span class="k">do</span>
+  read_file_async <span class="o">=</span> function p <span class="k">do</span>
+    file_path <span class="o">=</span> p.first.to_s
+    <span class="k">new</span> <span class="t">JSCContext</span>.get_value(<span class="s">&quot;Future&quot;</span>), (function p <span class="k">do</span>
+      resolve <span class="o">=</span> p.first.<span class="k">as</span>(<span class="t">JSCFunction</span>)
+      resolve.call <span class="t">File</span>.read(file_path)
+    <span class="k">end</span>)
+  <span class="k">end</span>
+  <span class="t">JSCContext</span>.set_value <span class="s">&quot;read_file_async&quot;</span>, read_file_async
+<span class="k">end</span></code></pre>
+
+<p>... or in JavaScript</p>
+
+<pre><code class="language-crystal">var future <span class="o">=</span> <span class="k">new</span> <span class="t">Future</span>((resolve, reject)=>{
+  resolve(<span class="s">&quot;World&quot;</span>);
+});
+future.<span class="k">then</span>((value,resolve,reject)=>{
+  console.log(<span class="s">`Hello {value}`</span>);  <span class="o">//</span>note that you must resolve this callback, otherwise....
+}).<span class="k">then</span>((value)=>{
+  <span class="o">//</span>.... this callback will not be executed
+});</code></pre>
+
+<p><span class="flag purple">NOTE</span>  Be sure to call <code><a href="Future.html#resolve(p)-instance-method">Future#resolve</a></code> or <code><a href="Future.html#reject(p)-instance-method">Future#reject</a></code> inside each callback, otherwise your later callbacks will not run.</p>
 
 
 
@@ -225,9 +267,7 @@
   </h2>
   <ul class="other-types-list">
     
-      <li class="other-type"><a href="Invokable.html">Invokable</a></li>
-    
-      <li class="other-type"><a href="JSObjectUtils.html">JSObjectUtils</a></li>
+      <li class="other-type"><a href="JSCClass.html">JSCClass</a></li>
     
   </ul>
 
@@ -250,16 +290,7 @@
   </h2>
   
     
-      <a href="https://github.com/TheEEs/alizarin/blob/be6789ee8d9e51680feb3a679d2b1ac4a9cdc5a1/src/components/jsc_object.cr#L4" target="_blank">
-        components/jsc_object.cr
-      </a>
-    
-    <br/>
-  
-    
-      <a href="https://github.com/TheEEs/alizarin/blob/be6789ee8d9e51680feb3a679d2b1ac4a9cdc5a1/src/components/jsc_object/accessor.cr#L1" target="_blank">
-        components/jsc_object/accessor.cr
-      </a>
+      components/future.cr
     
     <br/>
   
@@ -267,25 +298,6 @@
 
 
 
-
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
-        
-          <div class="summary"><p>Initializes a new JSCObject</p></div>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -302,28 +314,31 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#define_property(name,value,flags:Accessor::Accessibility)-instance-method" class="signature"><strong>#define_property</strong>(name, value, flags : Accessor::Accessibility)</a>
-        
-          <div class="summary"><p>Defines a JavaScript object's property, this is equal to JavaScript <code>Object.defineProperty</code>.</p></div>
+        <a href="#catch(p)-instance-method" class="signature"><strong>#catch</strong>(p)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#finalize-instance-method" class="signature"><strong>#finalize</strong></a>
+        <a href="#next_callback-instance-method" class="signature"><strong>#next_callback</strong></a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#mount_accessor(accessor:Accessor)-instance-method" class="signature"><strong>#mount_accessor</strong>(accessor : Accessor)</a>
+        <a href="#reject(p)-instance-method" class="signature"><strong>#reject</strong>(p)</a>
         
-          <div class="summary"><p>Defines a JavaScript object's property, this is equal to JavaScript <code>Object.defineProperty</code>.</p></div>
+          <div class="summary"><p>Reject the <code><a href="Future.html">Future</a></code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#properties-instance-method" class="signature"><strong>#properties</strong></a>
+        <a href="#resolve(p)-instance-method" class="signature"><strong>#resolve</strong>(p)</a>
         
-          <div class="summary"><p>Enumerates all properties of this <code><a href="JSCObject.html">JSCObject</a></code>.</p></div>
+          <div class="summary"><p>Resolves a callback.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#then(p)-instance-method" class="signature"><strong>#then</strong>(p)</a>
         
       </li>
     
@@ -334,6 +349,54 @@
 
 
 <div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+  <h3>Instance methods inherited from class <code><a href="JSCObject.html">JSCObject</a></code></h3>
+  
+  
+    <a href="JSCObject.html#define_property(name,value,flags:Accessor::Accessibility)-instance-method" class="tooltip">
+      <span>define_property(name, value, flags : Accessor::Accessibility)</span>
+    define_property</a>, 
+    
+  
+    <a href="JSCObject.html#mount_accessor(accessor:Accessor)-instance-method" class="tooltip">
+      <span>mount_accessor(accessor : Accessor)</span>
+    mount_accessor</a>, 
+    
+  
+    <a href="JSCObject.html#properties-instance-method" class="tooltip">
+      <span>properties</span>
+    properties</a>
+    
+  
+
+
+    
+
+  <h3>Constructor methods inherited from class <code><a href="JSCObject.html">JSCObject</a></code></h3>
+  
+  
+    <a href="JSCObject.html#new-class-method" class="tooltip">
+      <span>new</span>
+    new</a>
+    
+  
+
+
+    
+
+
   
     
 
@@ -461,37 +524,6 @@
 </div>
 
 
-  <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructor Detail
-  </h2>
-  
-    <div class="entry-detail" id="new-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>
-
-        <a class="method-permalink" href="#new-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Initializes a new JSCObject</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/TheEEs/alizarin/blob/be6789ee8d9e51680feb3a679d2b1ac4a9cdc5a1/src/components/jsc_object.cr#L16" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-
 
 
 
@@ -505,82 +537,118 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="define_property(name,value,flags:Accessor::Accessibility)-instance-method">
+    <div class="entry-detail" id="catch(p)-instance-method">
       <div class="signature">
         
-        def <strong>define_property</strong>(name, value, flags : <a href="JSCObject/Accessor/Accessibility.html">Accessor::Accessibility</a>)
+        def <strong>catch</strong>(p)
 
-        <a class="method-permalink" href="#define_property(name,value,flags:Accessor::Accessibility)-instance-method">#</a>
+        <a class="method-permalink" href="#catch(p)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="next_callback-instance-method">
+      <div class="signature">
+        
+        def <strong>next_callback</strong>
+
+        <a class="method-permalink" href="#next_callback-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reject(p)-instance-method">
+      <div class="signature">
+        
+        def <strong>reject</strong>(p)
+
+        <a class="method-permalink" href="#reject(p)-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Defines a JavaScript object's property, this is equal to JavaScript <code>Object.defineProperty</code>.</p>
+          <p>Reject the <code><a href="Future.html">Future</a></code>.</p>
+
+<p>This method is the same with the one passed as the third parameter of each <em>then</em>'s callback.
+When a callback call <code><a href="Future.html#reject(p)-instance-method">#reject</a></code>, all other then will be skip over and the callback passed to <code><a href="Future.html#catch(p)-instance-method">Future#catch</a></code> will be executed.
+Let's see the following example:</p>
+
+<pre><code class="language-crystal">var f <span class="o">=</span> <span class="k">new</span> <span class="t">Future</span>((resolve, reject)=>{
+  try{
+    throw <span class="s">&quot;Oops!&quot;</span>;
+  }
+  catch{
+    reject(<span class="s">&quot;Future rejected!&quot;</span>);   
+  }
+}).<span class="k">then</span>(value => {
+    console.log(<span class="s">&quot;Hello&quot;</span>);
+    <span class="o">//</span> this callback will not be called because this <span class="s">`Future`</span> is rejected!
+}).catch((msg)=>{
+  console.log(<span class="s">`Rejected message {msg}`</span>)  
+});
+<span class="o">//</span> <span class="t">To</span> get the later callback running, we can invoke method <span class="s">`f.resolve`</span>, e.g:
+f.resolve(<span class="n">1</span>);</code></pre>
+
+<blockquote>Output: Hello</blockquote>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/be6789ee8d9e51680feb3a679d2b1ac4a9cdc5a1/src/components/jsc_object.cr#L45" target="_blank">View source</a>]
-        
       </div>
     </div>
   
-    <div class="entry-detail" id="finalize-instance-method">
+    <div class="entry-detail" id="resolve(p)-instance-method">
       <div class="signature">
         
-        def <strong>finalize</strong>
+        def <strong>resolve</strong>(p)
 
-        <a class="method-permalink" href="#finalize-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/TheEEs/alizarin/blob/be6789ee8d9e51680feb3a679d2b1ac4a9cdc5a1/src/components/jsc_object.cr#L61" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="mount_accessor(accessor:Accessor)-instance-method">
-      <div class="signature">
-        
-        def <strong>mount_accessor</strong>(accessor : <a href="JSCObject/Accessor.html">Accessor</a>)
-
-        <a class="method-permalink" href="#mount_accessor(accessor:Accessor)-instance-method">#</a>
+        <a class="method-permalink" href="#resolve(p)-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Defines a JavaScript object's property, this is equal to JavaScript <code>Object.defineProperty</code>.
-See <code><a href="JSCObject/Accessor.html">Accessor</a></code> for more.</p>
+          <p>Resolves a callback.</p>
+
+<p>This method is the same with the one passed as the second parameter of each <em>then</em>'s callback.
+Let's see the following example:</p>
+
+<pre><code class="language-crystal">var f <span class="o">=</span> <span class="k">new</span> <span class="t">Future</span>((resolve, reject)=>{
+  <span class="o">//</span> <span class="k">do</span> nothing
+}).<span class="k">then</span>(value => {
+    console.log(<span class="s">&quot;Hello&quot;</span>);
+    <span class="o">//</span> this callback will not be called because the callback above it did not resolve.
+});
+<span class="o">//</span> <span class="t">To</span> get the later callback running, we can invoke method <span class="s">`f.resolve`</span>, e.g:
+f.resolve(<span class="n">1</span>);</code></pre>
+
+<blockquote>Output: Hello</blockquote>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheEEs/alizarin/blob/be6789ee8d9e51680feb3a679d2b1ac4a9cdc5a1/src/components/jsc_object.cr#L27" target="_blank">View source</a>]
-        
       </div>
     </div>
   
-    <div class="entry-detail" id="properties-instance-method">
+    <div class="entry-detail" id="then(p)-instance-method">
       <div class="signature">
         
-        def <strong>properties</strong>
+        def <strong>then</strong>(p)
 
-        <a class="method-permalink" href="#properties-instance-method">#</a>
+        <a class="method-permalink" href="#then(p)-instance-method">#</a>
       </div>
-      
-        <div class="doc">
-          
-          <p>Enumerates all properties of this <code><a href="JSCObject.html">JSCObject</a></code>.</p>
-        </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/TheEEs/alizarin/blob/be6789ee8d9e51680feb3a679d2b1ac4a9cdc5a1/src/components/jsc_object.cr#L50" target="_blank">View source</a>]
         
       </div>
     </div>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Crystal Docs 0.36.1">
-<meta name="crystal_docs.project_version" content="master">
+<meta name="crystal_docs.project_version" content="master-dev">
 <meta name="crystal_docs.project_name" content="alizarin">
 
 
@@ -13,9 +13,9 @@
 <script type="text/javascript" src="js/doc.js"></script>
 
   <meta name="repository-name" content="alizarin">
-  <title>alizarin master</title>
+  <title>JSCClass - alizarin master-dev</title>
   <script type="text/javascript">
-  CrystalDocs.base_path = "";
+    CrystalDocs.base_path = "";
   </script>
 </head>
 <body>
@@ -39,7 +39,7 @@
       </h1>
 
       <span class="project-version">
-        master
+        master-dev
       </span>
     </div>
   </div>
@@ -56,8 +56,18 @@
       
     </li>
   
+  <li class=" " data-id="alizarin/Future" data-name="future">
+      <a href="Future.html">Future</a>
+      
+    </li>
+  
   <li class=" " data-id="alizarin/Invokable" data-name="invokable">
       <a href="Invokable.html">Invokable</a>
+      
+    </li>
+  
+  <li class=" current" data-id="alizarin/JSCClass" data-name="jscclass">
+      <a href="JSCClass.html">JSCClass</a>
       
     </li>
   
@@ -188,110 +198,160 @@
 
 
 <div class="main-content">
-<h1><a id="alizarin" class="anchor" href="#alizarin">
+<h1 class="type-name">
+
+  <span class="kind">module</span> JSCClass
+
+</h1>
+
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
-</a>Alizarin</h1>
+</a>
+    Overview
+  </h2>
 
-<p><img src="https://img.shields.io/github/v/release/TheEEs/alizarin?style=flat-square" alt="GitHub release (latest by date)"/>
-<img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="LICENSE MIT"/>
-<img src="https://img.shields.io/badge/crystal-1.0.0-orange?style=flat-square" alt="CRYSTAL 1.0.0"/>
-<img src="https://img.shields.io/badge/webkit2gtk-4.0-blue?style=flat-square" alt="webkit2gtk"/></p>
+  <p>Alizarin allows us to create custom JavaScript classes using plain Crystal classes.
+All we need to do is to register our classes using <code><a href="WebExtension.html#register_class(type)-macro">WebExtension.register_class</a></code> macro.
+Note that if we need to expose any method of our Crystal's class so we can call it in JavaScript later, we <strong>must</strong> annotate it with <code><a href="WebExtension/JSCInstanceMethod.html">JSCInstanceMethod</a></code> annotation.</p>
 
-<p><strong>Alizarin</strong> is a Crystal shard that helps you build Linux GUI applications using Web Technologies (HTML5, CSS3, JavaScript). This shard also provides ability to extend JavaScript code with native functionalities.</p>
+<p>The example bellow demonstrates how to create a custom JavaScript class which allow us to read content of given file on disk.</p>
 
-<h2><a id="examples" class="anchor" href="#examples">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>Examples</h2>
+<ul><li>extension.cr</li></ul>
 
-<p><a href="https://github.com/TheEEs/markdown.git">Markdown - A markdown editor written with Alizarin</a></p>
-
-<h2><a id="installation" class="anchor" href="#installation">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>Installation</h2>
-
-<ul><li>Add the dependency to your <code>shard.yml</code>:</li></ul>
-
-<pre><code class="language-yaml">   dependencies:
-     alizarin:
-       github: TheEEs/alizarin</code></pre>
-
-<ul><li>Run <code>shards install</code></li></ul>
-
-<p><span class="flag purple">NOTE</span>  This shard requires <code>libwebkit2gtk-4.0</code> to be installed. Makes sure you have it installed into your system.</p>
-
-<pre><code class="language-shell">    $ sudo apt-get install -y libwebkit2gtk-4.0</code></pre>
-
-<h2><a id="usage" class="anchor" href="#usage">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>Usage</h2>
-
-<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;alizarin&quot;</span></code></pre>
-
-<ul><li>Open a browser window and load <a href="https://crystal-lang.org/">Crystal Offical Website</a></li></ul>
-
-<pre><code class="language-crystal">  <span class="k">require</span> <span class="s">&quot;alizarin&quot;</span>
-  <span class="k">require</span> <span class="s">&quot;colorize&quot;</span>
-
-  webview <span class="o">=</span> <span class="t">WebView</span>.<span class="k">new</span> 
-
-  webview.on_close <span class="k">do</span> <span class="o">|</span>webview<span class="o">|</span>
-    puts <span class="s">&quot;</span><span class="i">#{</span>webview<span class="i">}</span><span class="s"> is going to close&quot;</span>.colorize <span class="n">:green</span>
-    exit <span class="n">0</span>
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;alizarin&quot;</span>
+<span class="k">include</span> <span class="t">WebExtension</span>
+<span class="c">#here we do not have to construct a new class from scratch, just extend an existing one.</span>
+<span class="k">class</span> <span class="t">File</span> 
+  <span class="k">def</span> <span class="m">initialize</span>(params : <span class="o">[]</span> <span class="k">of</span> <span class="t">JSCObject</span> <span class="o">|</span> <span class="t">JSCFunction</span> <span class="o">|</span> <span class="t">JSCPrimative</span>)
+      <span class="k">super</span>(params.first.to_s)
   <span class="k">end</span>
 
-  webview.window_size <span class="n">800</span>, <span class="n">600</span>
-  webview.load_url <span class="s">&quot;https://crystal-lang.org/&quot;</span>
+  @[<span class="t">JSCInstanceMethod</span>]
+  <span class="k">def</span> <span class="m">content</span>(p)
+    <span class="k">self</span>.seek(<span class="n">0</span>)
+    <span class="k">self</span>.gets_to_end
+  <span class="k">end</span>
+<span class="k">end</span>
 
-  webview.run
-</code></pre>
+initialize_extension <span class="k">do</span>
+    <span class="t">JSCContext</span>.set_value <span class="s">&quot;File&quot;</span>, register_class(<span class="t">File</span>)
+<span class="k">end</span></code></pre>
 
-<ul><li>Show WebInspector (in case if you want to play with page's source code)</li></ul>
+<ul><li>index.js</li></ul>
 
-<pre><code class="language-crystal">  webview[<span class="s">&quot;enable-developer-extras&quot;</span>] <span class="o">=</span> <span class="n">true</span>
-  webview.show_inspector</code></pre>
+<pre><code class="language-crystal">var file_content <span class="o">=</span> <span class="k">new</span> <span class="t">File</span>(<span class="s">&quot;./LICENSE&quot;</span>).content();
+console.log(file_content);</code></pre>
 
-<p><span class="flag purple">NOTE</span>  There is also test cases located in <code>/spec</code> folder.</p>
+<p>When a Crystal instance method is annotated with <code><a href="WebExtension/Chainable.html">Chainable</a></code>, it means that the method will return the instance itself instead of a <code>JSC::JSValue</code>.
+It does not matter what type of data the method returns, it will always return the current instance which call the method.</p>
 
-<p>To run test case, types:</p>
+<ul><li>extension.cr</li></ul>
 
-<pre><code class="language-shell">$ git clone https://github.com/TheEEs/alizarin
-$ cd alizarin
-$ make
-$ crystal spec</code></pre>
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;alizarin&quot;</span>
+<span class="k">include</span> <span class="t">WebExtension</span>
+<span class="k">class</span> <span class="t">File</span> <span class="c">#here we do not have to construct a new class from scratch, just extend existing one.</span>
+  <span class="k">def</span> <span class="m">initialize</span>(params : <span class="o">[]</span> <span class="k">of</span> <span class="t">JSCObject</span> <span class="o">|</span> <span class="t">JSCFunction</span> <span class="o">|</span> <span class="t">JSCPrimative</span>)
+      <span class="k">super</span>(params.first.to_s)
+  <span class="k">end</span>
 
-<p>See <a href="https://theees.github.io/alizarin-docs/">Alizarin API</a> for more.</p>
+  @content <span class="o">=</span> <span class="s">&quot;&quot;</span>
 
-<h2><a id="development" class="anchor" href="#development">
+  @[<span class="t">JSCInstanceMethod</span>]
+  @[<span class="t">Chainable</span>]
+  <span class="k">def</span> <span class="m">read</span>(p)
+    <span class="k">self</span>.seek(<span class="n">0</span>)
+    @content <span class="o">=</span> <span class="k">self</span>.gets_to_end
+  <span class="k">end</span>
+
+  @[<span class="t">JSCInstanceMethod</span>]
+  <span class="k">def</span> <span class="m">content</span>(p)
+    @content
+  <span class="k">end</span>
+<span class="k">end</span>
+
+initialize_extension <span class="k">do</span>
+    <span class="t">JSCContext</span>.set_value <span class="s">&quot;File&quot;</span>, register_class(<span class="t">File</span>)
+<span class="k">end</span></code></pre>
+
+<ul><li>index.js</li></ul>
+
+<pre><code class="language-crystal">var file_content <span class="o">=</span> <span class="k">new</span> <span class="t">File</span>(<span class="s">&quot;./LICENSE&quot;</span>).read().content();
+console.log(file_content);</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="direct-including-types" class="anchor" href="#direct-including-types">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
-</a>Development</h2>
+</a>
+    Direct including types
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="Future.html">Future</a></li>
+    
+  </ul>
 
-<p><span class="flag orange">TODO</span>  Write Development instructions here.</p>
 
-<h2><a id="contributing" class="anchor" href="#contributing">
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
-</a>Contributing</h2>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      components/jsc_class.cr
+    
+    <br/>
+  
 
-<ol><li>Fork it <a href="https://github.com/TheEEs/alizarin/fork">https://github.com/TheEEs/alizarin/fork</a></li><li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li><li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li><li>Push to the branch (<code>git push origin my-new-feature</code>)</li><li>Create a new Pull Request</li></ol>
 
-<h2><a id="author" class="anchor" href="#author">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>Author</h2>
 
-<ul><li><a href="https://github.com/TheEEs">TheEEs</a> - creator and maintainer</li></ul>
+
+
+
+
+
+
+
+
+
+
+<div class="methods-inherited">
+  
 </div>
+
+
+
+
+
+
+
+
+
+</div>
+
 </body>
 </html>
